@@ -1,7 +1,7 @@
 # MITAMP
 The official code of MITAMP - Imaging foundation model for universal enhancement of non-ideal measurement CT
 
-<p align="center"><img width="70%" src="figs/background.png" /></p>
+<p align="center"><img width="70%" src="figs/fig.png" /></p>
 
 ## News
 - 2024.09.15: Release a large-scale simulated NICT dataset, **SimNICT**, with 3.6 million image pairs. [[Dataset](https://huggingface.co/datasets/YutingHe-list/SimNICT)]
