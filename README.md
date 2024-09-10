@@ -31,7 +31,7 @@ Waitting
 ```
 
 ## Ongoing
+- [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
 - [ ] Release training code of MITAMP.
 - [ ] Release adaptation code of MITAMP-S.
-- [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
 - [x] Release inference code and pretrained weights of MITAMP.
