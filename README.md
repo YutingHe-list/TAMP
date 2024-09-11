@@ -3,7 +3,7 @@ The official code of MITAMP paper - "[Imaging foundation model for universal enh
 
 Non-ideal measurement computed tomography (NICT), which sacrifices optimal imaging standards for new advantages in CT imaging, is expanding the clinical application scope of CT images. However, with the reduction of imaging standards, the image quality has also been reduced, extremely limiting the clinical acceptability. We propose a **M**ulti-scale **I**ntegrated **T**ransformer **AMP**lifier (**MITAMP**), the first imaging foundation model for universal NICT enhancement. It has been pre-trained on a large-scale physical-driven simulation dataset, and is able to directly generalize to the NICT enhancement tasks with various non-ideal settings and body regions. Via the adaptation with few data, it can further achieve professional performance in real-world specific scenarios.
 
-<p align="center"><img width="100%" src="figs/fig.png" /></p>
+<p align="center"><img width="80%" src="figs/background.png" /></p>
 
 ## News
 - 2024.09.15: Release a large-scale simulated NICT dataset, **SimNICT**, with 3.6 million image pairs. [[Dataset](https://huggingface.co/datasets/YutingHe-list/SimNICT)]
@@ -21,6 +21,13 @@ Download the [model checkpoint](https://) and place it at e.g., `work_dir/MITAMP
 ## Model Training
 
 ### Data Preprocessing
+
+## Model Testing
+For your convenience, we provide some example datasets and [pretrained foundation model](https://drive.google.com/file/d/1fdh6B8phdkmSj32Vqz2-AwFO-m_qEwAF/view?usp=drive_link).
+
+Following commands will download pretrained models automatically and put them in model_zoo/swinir
+
+
 
 ## Acknowledgements
 - We highly appreciate
