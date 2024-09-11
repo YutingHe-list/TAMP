@@ -25,10 +25,6 @@ Download the [model checkpoint](https://) and place it at e.g., `work_dir/MITAMP
 ## Model Testing
 For your convenience, we provide some example datasets and [pretrained foundation model](https://drive.google.com/file/d/1fdh6B8phdkmSj32Vqz2-AwFO-m_qEwAF/view?usp=drive_link).
 
-Following commands will download pretrained models automatically and put them in model_zoo/swinir
-
-
-
 ## Acknowledgements
 - We highly appreciate
 
