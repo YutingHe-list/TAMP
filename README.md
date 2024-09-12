@@ -23,7 +23,7 @@ Download the [model checkpoint](https://) and place it at e.g., `work_dir/MITAMP
 ### Data Preprocessing
 
 ## Model Testing
-For your convenience, we provide some example datasets and [pretrained foundation model](https://drive.google.com/file/d/1fdh6B8phdkmSj32Vqz2-AwFO-m_qEwAF/view?usp=drive_link).
+For your convenience, we provide some example datasets and [pretrained foundation model](https://drive.google.com/file/d/1fdh6B8phdkmSj32Vqz2-AwFO-m_qEwAF/view?usp=drive_link). 
 
 ## Acknowledgements
 - We highly appreciate
