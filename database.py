@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 class Database(Dataset):
     def __init__(self, opt):       
 
-        self.input_folder = f"samples/fine-tuning_test/input/{opt.NICT_setting}_{opt.NICT_degree}"
+        self.input_folder = f"samples/fine-tuning_test/input/{opt.NICT_setting}_{opt.defect_degree}"
         self.label_folder = f"samples/fine-tuning_test/label"
         self.nii_start_index = opt.nii_start_index 
         self.queue_len = opt.queue_len

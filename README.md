@@ -34,7 +34,7 @@ For your convenience, we provide three test modes to demonstrate the performance
 ### 3.1 Slice testing
 Nine types of NICT images are provided in the `./samples/slice_test/input` directory for a simple test of MITAMP's universal enhancement capability. Execute the following command. The MITAMP-enhanced output will be stored in `./samples/slice_test/output`
 ```bash
-python main.py --test_pattern "slice_test"
+python main.py --testing_mode "slice_test"
 ```
 
 ### 3.2 Volume testing
@@ -44,7 +44,7 @@ We have provided additional NICT data for testing purposes.
 
 **Step 2**: Execute the following command. The MITAMP-enhanced output will be stored in `./samples/volume_test/output`
 ```bash
-python main.py --test_pattern "volume_test"
+python main.py --testing_mode "volume_test"
 ```
 
 ### 3.3 Fine-tuning and testing
@@ -52,14 +52,16 @@ We have provided specific NICT-type fine-tuning data along with the MITAMP fine-
 
 **Step 1**: Download the [fine-tuning data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=k4rlON), which includes 44 volumes for each of the 9 types of NICT data , and place them in the `./samples/fine-tuning_test` directory. 
 
-**Step 2**: Execute the following command to fine-tune MITAMP on a specific category of NICT data, where the parameter 'NICT_setting' can be set to 'LDCT', 'LACT', or 'SVCT', and the parameter 'defect_degree' can be set to 'Low', 'Mid', or 'High'. The fine-tuned LoRA weights will be stored in the corresponding `./models/fine-tune_LoRA_weight` directory. 
+**Step 2**: Execute the following command to fine-tune MITAMP-S on a specific category of NICT data, where the parameter 'NICT_setting' can be set to 'LDCT', 'LACT', or 'SVCT', and the parameter 'defect_degree' can be set to 'Low', 'Mid', or 'High'. The fine-tuned LoRA weights will be stored in the corresponding `./models/fine-tune_LoRA_weight` directory. 
 ```bash
-python main.py --test_pattern "fine_tuning" --NICT_setting "LDCT" --defect_degree "Low"
+python main.py --testing_mode "fine_tuning" --NICT_setting "LDCT" --defect_degree "Low"
 ```
 
 **Step 3**: 
-
-
+Load and test the performance of MITAMP-S on its corresponding task with the following command. The output will be stored in `./samples/volume_test/output`. The [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=QXqJ66) is the same as in Volume testing, so there is no need to download it again. 
+```bash
+python main.py --testing_mode "testing_finetuned"
+```
 
 ## Acknowledgements
 - We highly appreciate

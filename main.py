@@ -37,12 +37,12 @@ def get_parser():
     parser.add_argument('--NICT_setting', type=str, default="LDCT")
     parser.add_argument('--defect_degree', type=str, default="Low")
 
-    parser.add_argument('--LoRA_load_set', type=str, default="1")
+    parser.add_argument('--LoRA_load_set', type=int, default=1)
     parser.add_argument('--nii_start_index', type=int, default=1)
     parser.add_argument('--queue_len', type=int, default=5)
 
-# batch_size
-# cuda_index str
+    parser.add_argument('--batch_size', type=int, default=1)
+    parser.add_argument('--cuda_index', type=str, default="1")
 
     return parser
 
@@ -207,7 +207,30 @@ def fine_tuning(opt):
         train_loss.clear()   
 
 def testing_finetuned():
-    ...
+    model = load_model(opt)
+
+    input_folder = "samples/volume_test/input"
+    nii_folder = f"{input_folder}/{opt.NICT_setting}_{opt.defect_degree}"
+
+    for input_nii_set in range(1,12):
+        input_nii_path = f"{nii_folder}/{input_nii_set}.nii.gz"
+        input_nii_image = sitk.ReadImage(input_nii_path)
+        input_nii_file =  sitk.GetArrayFromImage(input_nii_image)
+
+        input_nii_tensor = torch.tensor(standard(input_nii_file), dtype=torch.float).to("cuda:2")
+        S,H,W=input_nii_file.shape
+        output_nii_file = np.zeros((S,H,W),dtype=np.int16)
+
+        for i in range(S):
+            input_slice_tensor = input_nii_tensor[i].unsqueeze(0).unsqueeze(0)
+            output_nii_tensor = model(input_slice_tensor)            
+            output = unstandard(np.array(output_nii_tensor.cpu().detach())).astype('int16')
+            output_nii_file[i] = output[0][0]
+
+        output_nii_image = sitk.GetImageFromArray(output_nii_file)
+        output_nii_image.CopyInformation(input_nii_image)
+        output_nii_path=input_nii_path.replace("input", "output")
+        sitk.WriteImage(output_nii_image, output_nii_path)
 
 if __name__ == '__main__':
     parser = get_parser()
