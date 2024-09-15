@@ -33,7 +33,7 @@ For your convenience, we provide two testing modes to show the universal NICT en
 ### 3.1 Slice testing
 Nine types of NICT images are provided in the `./samples/slice_test/input` directory for a simple test of MITAMP's universal enhancement capability. Execute the following command. The MITAMP-enhanced output will be stored in `./samples/slice_test/output`
 ```bash
-python main.py --testing_mode "slice_test"
+python main.py --testing_mode "slice_testing" --LoRA_mode "none"
 ```
 
 ### 3.2 Volume testing
@@ -43,7 +43,7 @@ We have provided additional NICT data for testing.
 
 **Step 2**: Execute the following command. The MITAMP-enhanced output will be stored in `./samples/volume_test/output`
 ```bash
-python main.py --testing_mode "volume_test"
+python main.py --testing_mode "volume_test" --LoRA_mode "none"
 ```
 
 ##  4. Model Fine-tuning and testing
@@ -55,18 +55,20 @@ We also provide the MITAMP-S adaptation code for specific NICT enhancement tasks
 
 **Step 2**: Execute the following command to fine-tune MITAMP-S on a specific category of NICT data, where the parameter 'NICT_setting' can be set to 'LDCT', 'LACT', or 'SVCT', and the parameter 'defect_degree' can be set to 'Low', 'Mid', or 'High'. The fine-tuned LoRA weights will be stored in the corresponding `./models/fine-tune_LoRA_weight` directory. 
 ```bash
-python main.py --testing_mode "fine_tuning" --NICT_setting "LDCT" --defect_degree "Low"
+python main.py --testing_mode "fine_tuning" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "get"
 ```
 
 ### 4.2 Slice testing
 
 Load and test the performance of MITAMP-S on its corresponding task with the following command. The output will be stored in `./samples/volume_test/output`. The [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=QXqJ66) is the same as in Volume testing, so there is no need to download it again. 
 ```bash
-python main.py --testing_mode "testing_finetuned"
+python main.py --testing_mode "slice_testing" --LoRA_mode "load"
 ```
 
 ### 4.3 Volume testing
-
+```bash
+python main.py --testing_mode "volume_testing" --LoRA_mode "load"
+```
 
 
 ## Acknowledgements
