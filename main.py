@@ -1,49 +1,30 @@
-from matplotlib import pyplot as plt
-import torchvision.transforms as transforms
-import cv2
-import matplotlib.pyplot as plt
-import lpips
-from PIL import Image
-import time
-from calflops import calculate_flops
-import tifffile
-import glob 
 import os
-import json
 import sys
-from alive_progress import alive_bar
-from collections import OrderedDict
-
-
-from network_MITAMP import MITNet
-from loss import DualDomainLoss as my_loss
-from database import Database as my_database
-
 import numpy as np
 import torch
 import argparse
 import SimpleITK as sitk
 # from adan import Adan
-
-
 from peft import get_peft_model_state_dict
 from peft import LoraConfig
 from peft import get_peft_model
 from peft import set_peft_model_state_dict
 
+from network_MITAMP import MITNet
+from loss import DualDomainLoss as my_loss
+from database import Database as my_database
 
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
     parser.add_argument('--testing_mode', type=str, default="slice_testing", help="slice_testing, volume_testing, fine_tuning")
     parser.add_argument('--LoRA_mode', type=str, default="none", help="none, get, load") 
 
-    parser.add_argument('--NICT_setting', type=str, default="LDCT")
-    parser.add_argument('--defect_degree', type=str, default="Low")
+    parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
+    parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
 
-    parser.add_argument('--LoRA_load_set', type=int, default=1)
     parser.add_argument('--nii_start_index', type=int, default=1)
+    parser.add_argument('--LoRA_load_set', type=int, default=1)
     parser.add_argument('--queue_len', type=int, default=5)
-
     parser.add_argument('--batch_size', type=int, default=1)
     parser.add_argument('--cuda_index', type=int, default=1)
 
