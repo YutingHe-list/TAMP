@@ -18,15 +18,15 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 <!-- 这里还要准备个最简单的环境 -->
 ```bash
 $ git clone https://github.com/YutingHe-list/MITAMP
-$ cd 
+$ cd MITAMP/
 $ pip install -r requirements.txt
 ```
-Then, execute the following command to construct the complete folder structure:
+## 2. Download the pre-trained Models MITAMP
+**Step 1**: Execute the following command to automatically construct the empty folders for saving models.
 ```bash
 python main.py --testing_mode "create_folders"
 ```
-## 2. Download the pre-trained Models MITAMP
-Download the [model checkpoint](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoVQNIe_E0RAnfDCJXsplHoBDe9kbq-3eAbRBMlliMjxTA?e=ccZe8r) and save it to `./models/MITAMP_weight/MITAMP.pkl`.
+**Step 2**: Download the [model checkpoint](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoVQNIe_E0RAnfDCJXsplHoBDe9kbq-3eAbRBMlliMjxTA?e=ccZe8r) and save it to `./models/MITAMP_weight/MITAMP.pkl`.
 
 ## 3. Foundation Model Testing
 For your convenience, we provide two testing modes to show the universal NICT enhancement performance of MITAMP. 
@@ -42,7 +42,7 @@ python main.py --testing_mode "slice_testing" --LoRA_mode "none"
 ### 3.2 Volume testing
 We have provided additional NICT data for testing. 
 
-**Step 1**: Download the [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=QXqJ66), which includes 11 volumes for each of the 9 types of NICT data, and place them in the `./samples/volume_testing/input` directory.
+**Step 1**: Download the [testing data](https://seunic-my.sharepoint.cn/my?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FMITAMP%2Fdata%2Fvolume%5Ftesting&ga=1), which includes 11 volumes for each of the 9 types of NICT data, and place them in the `./samples/volume_testing/input` directory.
 
 **Step 2**: Execute the following command, and the MITAMP-enhanced output will be stored in `./samples/volume_testing/output`
 ```bash

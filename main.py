@@ -47,7 +47,6 @@ def package_nii(modified_array,input_file_address,output_file_address):
     modified_image.CopyInformation(image)
     sitk.WriteImage(modified_image, output_file_address)
 
-
 def load_model(opt):
     state_dict = torch.load("models/foundation_model_weight/MITAMP.pkl")
     model = MITNet()
