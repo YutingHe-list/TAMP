@@ -23,7 +23,7 @@ import numpy as np
 import torch
 import argparse
 import SimpleITK as sitk
-from adan import Adan
+# from adan import Adan
 
 
 from peft import get_peft_model_state_dict
@@ -88,12 +88,33 @@ def load_model(opt):
         model = get_peft_model(model, config)
         
         if opt.LoRA_mode == "load":
-            lora_path = f"models/fine-tune_LoRA_weight/LoRA_{opt.NICT_setting}_{opt.defect_degree}_{opt.LoRA_load_set}.pkl"
-            lora_state_dict = torch.load(lora_path,map_location="cpu")    
+            lora_path = f"models/LoRA_weight/{opt.NICT_setting}_{opt.defect_degree}/LoRA_{opt.LoRA_load_set}.pkl"
+            lora_state_dict = torch.load(lora_path,map_location="cpu")
             set_peft_model_state_dict(model,lora_state_dict)
 
     model.to(f"cuda:{opt.cuda_index}")    
     return model
+
+def create_folders():    
+    settings = ["LDCT", "LACT", "SVCT"]
+    degrees = ["Low", "Mid", "High"]
+    NICT_types = [f"{setting}_{degree}" for setting in settings for degree in degrees]
+
+    if not(os.path.exists("samples/slice_testing/output")):
+        os.mkdir("samples/slice_testing/output")
+
+    if not(os.path.exists("samples/volume_testing")):
+        os.mkdir(f"samples/volume_testing")
+        os.mkdir(f"samples/volume_testing/output")
+    for NICT_type in NICT_types: 
+        if not(os.path.exists(f"samples/volume_testing/output/{NICT_type}")):
+            os.mkdir(f"samples/volume_testing/output/{NICT_type}")
+    
+    if not(os.path.exists("samples/LoRA_weight")):
+        os.mkdir(f"samples/LoRA_weight")
+    for NICT_type in NICT_types: 
+        if not(os.path.exists("models/LoRA_weight/{NICT_type}")):
+            os.mkdir(f"models/LoRA_weight/{NICT_type}")
 
 def slice_testing(opt):
     model = load_model()
@@ -199,7 +220,7 @@ def fine_tuning(opt):
         show_training_global_info(nii_epoch,train_loss)
 
         LoRA_state_dict = get_peft_model_state_dict(model)
-        LoRA_state_path = f"models/fine-tune_LoRA_weight/LoRA_{opt.NICT_setting}_{opt.defect_degree}_{nii_epoch}.pkl"
+        LoRA_state_path = f"models/LoRA_weight/{opt.NICT_setting}_{opt.defect_degree}/LoRA_{nii_epoch}.pkl"
         torch.save(LoRA_state_dict,LoRA_state_path)
 
         train_dataset.refresh_next_train()
@@ -208,6 +229,7 @@ def fine_tuning(opt):
 if __name__ == '__main__':
     parser = get_parser()
     opt = parser.parse_args()
+    create_folders()
 
     if opt.testing_mode == "slice_testing":
         slice_testing(opt)

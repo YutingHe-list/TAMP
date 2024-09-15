@@ -62,12 +62,12 @@ python main.py --testing_mode "fine_tuning" --NICT_setting "LDCT" --defect_degre
 
 Load and test the performance of MITAMP-S on its corresponding task with the following command. The output will be stored in `./samples/volume_test/output`. The [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=QXqJ66) is the same as in Volume testing, so there is no need to download it again. 
 ```bash
-python main.py --testing_mode "slice_testing" --LoRA_mode "load"
+python main.py --testing_mode "slice_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load"
 ```
 
 ### 4.3 Volume testing
 ```bash
-python main.py --testing_mode "volume_testing" --LoRA_mode "load"
+python main.py --testing_mode "volume_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load"
 ```
 
 
