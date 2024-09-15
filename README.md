@@ -10,12 +10,10 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 - 2024.09.15: Release the **MITAMP** official code for universal NICT enhancement. Welcome to use and evaluate! [[Paper](***)] 
 
 ## Dependecies
----
 - Python 3.10.11
 - PyTorch 2.0.1
 
 ## Usage of the pre-trained Models MITAMP
----
 ## 1. Clone the repository
 <!-- 这里还要准备个最简单的环境 -->
 ```bash
@@ -54,7 +52,7 @@ We have provided specific NICT-type fine-tuning data along with the MITAMP fine-
 
 **Step 1**: Download the [fine-tuning data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=k4rlON), which includes 44 volumes for each of the 9 types of NICT data , and place them in the `./samples/fine-tuning_test` directory. 
 
-**Step 2**: Execute the following command to fine-tune MITAMP on a specific category of NICT data, where the parameter 'NICT_setting' can be set to 'LDCT', 'LACT', or 'SVCT', and the parameter 'defect_degree' can be set to 'Low', 'Mid', or 'High'. The fine-tuned LoRA weights will be stored in the corresponding `./samples/fine-tuning_test/NICT_setting/defect_degree` directory. 
+**Step 2**: Execute the following command to fine-tune MITAMP on a specific category of NICT data, where the parameter 'NICT_setting' can be set to 'LDCT', 'LACT', or 'SVCT', and the parameter 'defect_degree' can be set to 'Low', 'Mid', or 'High'. The fine-tuned LoRA weights will be stored in the corresponding `./models/fine-tune_LoRA_weight` directory. 
 ```bash
 python main.py --test_pattern "fine_tuning" --NICT_setting "LDCT" --defect_degree "Low"
 ```
