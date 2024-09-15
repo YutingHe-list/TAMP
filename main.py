@@ -110,6 +110,9 @@ def create_folders():
         if not(os.path.exists(f"samples/volume_testing/output/{NICT_type}")):
             os.mkdir(f"samples/volume_testing/output/{NICT_type}")
     
+    if not(os.path.exists("models/MITAMP_weight")):
+        os.mkdir(f"models/MITAMP_weight")
+
     if not(os.path.exists("samples/LoRA_weight")):
         os.mkdir(f"samples/LoRA_weight")
     for NICT_type in NICT_types: 
@@ -229,9 +232,10 @@ def fine_tuning(opt):
 if __name__ == '__main__':
     parser = get_parser()
     opt = parser.parse_args()
-    create_folders()
-
-    if opt.testing_mode == "slice_testing":
+    
+    if opt.testing_mode == "create_folders":
+        create_folders()
+    elif opt.testing_mode == "slice_testing":
         slice_testing(opt)
     elif opt.testing_mode == "volume_testing":
         volume_testing(opt)
