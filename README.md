@@ -25,11 +25,10 @@ $ pip install -r requirements.txt
 ## 2. Download the pre-trained Models MITAMP
 Download the [model checkpoint](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoVQNIe_E0RAnfDCJXsplHoBDe9kbq-3eAbRBMlliMjxTA?e=ccZe8r) and save it to `./models/foundation_model_weight/MITAMP.pkl`.
 
-## 3. Model Testing
-For your convenience, we provide three test modes to demonstrate the performance of MITAMP. 
-- To gain a quick understanding of our foundational model's universal NICT enhancement capabilities, the [slice testing](#31-slice-testing) is recommended. 
-- More test data is provided in the [volume testing](#32-volume-testing). 
-- In the [adaptation testing](#33-adaptation-testing), we provide training data for nine types of NICT and the MITAMP fine-tuning code, used to test its adaptation capability for specific NICT enhancement tasks.
+## 3. Foundation Model Testing
+For your convenience, we provide two testing modes to show the universal NICT enhancement performance of MITAMP. 
+- To gain a quick understanding, the [Slice testing](#31-slice-testing) is recommended. 
+- More test data is provided in the [Volume testing](#32-volume-testing). 
 
 ### 3.1 Slice testing
 Nine types of NICT images are provided in the `./samples/slice_test/input` directory for a simple test of MITAMP's universal enhancement capability. Execute the following command. The MITAMP-enhanced output will be stored in `./samples/slice_test/output`
@@ -38,7 +37,7 @@ python main.py --testing_mode "slice_test"
 ```
 
 ### 3.2 Volume testing
-We have provided additional NICT data for testing purposes. 
+We have provided additional NICT data for testing. 
 
 **Step 1**: Download the [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=QXqJ66), which includes 11 volumes for each of the 9 types of NICT data, and place them in the `./samples/volume_test/input` directory.
 
@@ -47,9 +46,11 @@ We have provided additional NICT data for testing purposes.
 python main.py --testing_mode "volume_test"
 ```
 
-### 3.3 Fine-tuning and testing
-We have provided specific NICT-type fine-tuning data along with the MITAMP fine-tuning and testing code. 
+##  4. Model Fine-tuning and testing
+We also provide the MITAMP-S adaptation code for specific NICT enhancement tasks using fine-tuning data in the [Model fine-tuning](#41-model-fine-tuning) section, followed with the corresponding [Slice testing](#42-slice-testing) and [Volume testing](#43-volume-testing).
 
+
+### 4.1 Model fine-tuning
 **Step 1**: Download the [fine-tuning data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=k4rlON), which includes 44 volumes for each of the 9 types of NICT data , and place them in the `./samples/fine-tuning_test` directory. 
 
 **Step 2**: Execute the following command to fine-tune MITAMP-S on a specific category of NICT data, where the parameter 'NICT_setting' can be set to 'LDCT', 'LACT', or 'SVCT', and the parameter 'defect_degree' can be set to 'Low', 'Mid', or 'High'. The fine-tuned LoRA weights will be stored in the corresponding `./models/fine-tune_LoRA_weight` directory. 
@@ -57,11 +58,16 @@ We have provided specific NICT-type fine-tuning data along with the MITAMP fine-
 python main.py --testing_mode "fine_tuning" --NICT_setting "LDCT" --defect_degree "Low"
 ```
 
-**Step 3**: 
+### 4.2 Slice testing
+
 Load and test the performance of MITAMP-S on its corresponding task with the following command. The output will be stored in `./samples/volume_test/output`. The [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=QXqJ66) is the same as in Volume testing, so there is no need to download it again. 
 ```bash
 python main.py --testing_mode "testing_finetuned"
 ```
+
+### 4.3 Volume testing
+
+
 
 ## Acknowledgements
 - We highly appreciate

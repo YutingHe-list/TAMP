@@ -34,6 +34,8 @@ from peft import set_peft_model_state_dict
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
     parser.add_argument('--testing_mode', type=str, default="fine-tuning")
+    parser.add_argument('--LoRA_mode', type=str, default="none", help="none, get, load") 
+
     parser.add_argument('--NICT_setting', type=str, default="LDCT")
     parser.add_argument('--defect_degree', type=str, default="Low")
 
