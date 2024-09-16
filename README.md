@@ -46,12 +46,11 @@ We have provided additional NICT data for testing.
 
 **Step 2**: Execute the following command, and the MITAMP-enhanced output will be stored in `./samples/volume_testing/output`
 ```bash
-python main.py --testing_mode "volume_test" --LoRA_mode "none"
+python main.py --testing_mode "volume_testing" --LoRA_mode "none"
 ```
 
 ##  4. Model Fine-tuning and testing
 We also provide the MITAMP-S adaptation code for specific NICT enhancement tasks using fine-tuning data in the [Model fine-tuning](#41-model-fine-tuning) section, followed with the corresponding [Slice testing](#42-slice-testing) and [Volume testing](#43-volume-testing).
-
 
 ### 4.1 Model fine-tuning
 **Step 1**: Download the [fine-tuning data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=k4rlON), which includes 44 volumes for each of the 9 types of NICT data, and place them in the `./samples/fine-tuning/input` and `./samples/fine-tuning/label` directory. 
@@ -64,14 +63,14 @@ python main.py --testing_mode "fine_tuning" --NICT_setting "LDCT" --defect_degre
 ### 4.2 Slice testing
 Have a simple test of the MITAMP-S you fine-tuned in the [previous section](#41-model-fine-tuning) with one corresponding NICT images. Execute the following command and the output enhanced by MITAMP-S will be stored in `./samples/slice_testing/output`.
 ```bash
-python main.py --testing_mode "slice_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load"
+python main.py --testing_mode "slice_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load" --LoRA_load_set 44
 ```
 
 ### 4.3 Volume testing
 Further test the MITAMP-S you fine-tuned in the [previous section](#41-model-fine-tuning) with 11 corresponding NICT volumes, which are the same as those used in [Volume testing](#32-volume-testing). Execute the following command and the output enhanced by MITAMP-S will be stored in `./samples/volume_testing/output`.
 
 ```bash
-python main.py --testing_mode "volume_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load"
+python main.py --testing_mode "volume_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load" --LoRA_load_set 44
 ```
 
 

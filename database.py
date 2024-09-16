@@ -7,8 +7,8 @@ from torch.utils.data import Dataset
 class Database(Dataset):
     def __init__(self, opt):       
 
-        self.input_folder = f"samples/fine-tuning_test/input/{opt.NICT_setting}_{opt.defect_degree}"
-        self.label_folder = f"samples/fine-tuning_test/label"
+        self.input_folder = f"samples/fine-tuning/input/{opt.NICT_setting}_{opt.defect_degree}"
+        self.label_folder = f"samples/fine-tuning/label"
         self.nii_start_index = opt.nii_start_index 
         self.queue_len = opt.queue_len
         self.labels_sets, self.inputs_sets = np.arange(1, 45), np.arange(1, 45)
@@ -20,7 +20,7 @@ class Database(Dataset):
         return inputs, labels
     
     def __len__(self):
-        return self.slice_num
+        return self.slice_num //100
     
     def load_nii_to_queue(self):
         
@@ -43,7 +43,7 @@ class Database(Dataset):
             inputs =  sitk.GetArrayFromImage(sitk.ReadImage(new_distorted_path))
 
             data_dict = [inputs, labels]
-            print("\nLoading of Nii data number %d completed, time taken: %2fs." % (self.nii_start_index-1,time.time()-start_time))
+            print("Loading of Nii data number %d completed, time taken: %2fs." % (self.nii_start_index-1,time.time()-start_time))
 
             self.file_queue.append(data_dict)
             self.slice_queue.append(inputs.shape[0])

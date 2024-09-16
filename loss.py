@@ -22,13 +22,13 @@ class DualDomainLoss():
     def clear(self):
         
         self.gloss,self.gloss_mse,self.gloss_vgg,self.gloss_ssim,\
-            self.gloss_promse,self.iter = 0,0,0,0,0,0,0,0
+            self.gloss_promse,self.iter = 0,0,0,0,0,0
 
     def cal_loss(self,outputs,labels):
 
         loss_mse = self.criterion_mse(outputs, labels)          * 1
-        loss_vgg = self.criterion_vgg(outputs, labels)          * 0.005
-        loss_ssim = (1 - self.criterion_ssim(outputs,labels))   * 0.0005
+        loss_vgg = self.criterion_vgg(outputs, labels)          * 0.0001
+        loss_ssim = (1 - self.criterion_ssim(outputs,labels))   * 0.005
 
         outputs_proj = self.proj_tensor(outputs)
         labels_proj = self.proj_tensor(labels)
@@ -40,7 +40,7 @@ class DualDomainLoss():
         self.gloss_vgg += loss_vgg.item()
         self.gloss_ssim += loss_ssim.item()
         self.gloss_promse += loss_promse.item()
-        self.gloss = self.gloss_mse+self.gloss_ssim+ self.gloss_promse
+        self.gloss = self.gloss_mse+self.gloss_vgg+self.gloss_ssim+self.gloss_promse
 
         self.iter += 1
 
