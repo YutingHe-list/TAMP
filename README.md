@@ -73,7 +73,6 @@ Further test the MITAMP-S you fine-tuned in the [previous section](#41-model-fin
 python main.py --testing_mode "volume_testing" --NICT_setting "LDCT" --defect_degree "Low" --LoRA_mode "load" --LoRA_load_set 44
 ```
 
-
 ## Acknowledgements
 - We highly appreciate
 

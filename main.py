@@ -24,7 +24,7 @@ def get_parser():
 
     parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
-    parser.add_argument('--LoRA_load_set', type=int, default=1)
+    parser.add_argument('--LoRA_load_set', type=int, default=44)
     parser.add_argument('--queue_len', type=int, default=5)
     parser.add_argument('--batch_size', type=int, default=5)
     parser.add_argument('--cuda_index', type=int, default=1)
