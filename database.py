@@ -11,16 +11,16 @@ class Database(Dataset):
         self.label_folder = f"samples/fine-tuning/label"
         self.nii_start_index = opt.nii_start_index 
         self.queue_len = opt.queue_len
-        self.labels_sets, self.inputs_sets = np.arange(1, 45), np.arange(1, 45)
+        self.training_volumes = opt.training_volumes
+        self.labels_sets, self.inputs_sets = np.arange(1, opt.training_volumes+1), np.arange(1, 45)
 
     def __getitem__(self, index):        
         inputs = self.train_input[index]
-        labels = self.train_label[index]
-            
+        labels = self.train_label[index]            
         return inputs, labels
     
     def __len__(self):
-        return self.slice_num //100
+        return self.slice_num
     
     def load_nii_to_queue(self):
         
@@ -30,25 +30,24 @@ class Database(Dataset):
         need_load_nii_num = self.queue_len
         while need_load_nii_num>0:
 
-            input_set = self.inputs_sets[self.nii_start_index]
-            label_set = self.labels_sets[self.nii_start_index]
+            nii_load_index = self.nii_start_index%self.training_volumes
+            input_set = self.inputs_sets[nii_load_index]
+            label_set = self.labels_sets[nii_load_index]
             
-            self.nii_start_index+=1
-
             new_original_path = f"{self.label_folder}/{label_set}.nii.gz"
             new_distorted_path = f"{self.input_folder}/{input_set}.nii.gz"
 
             start_time = time.time()
             labels =  sitk.GetArrayFromImage(sitk.ReadImage(new_original_path))
             inputs =  sitk.GetArrayFromImage(sitk.ReadImage(new_distorted_path))
+            print("Loading of %d.nii.gz completed, time taken: %2fs." % (nii_load_index,time.time()-start_time))
 
             data_dict = [inputs, labels]
-            print("Loading of Nii data number %d completed, time taken: %2fs." % (self.nii_start_index-1,time.time()-start_time))
-
             self.file_queue.append(data_dict)
             self.slice_queue.append(inputs.shape[0])
             self.slice_num += inputs.shape[0]
             need_load_nii_num -= 1
+            self.nii_start_index+=1
 
         print("\nThe loading of Nii training data is complete!")
 
@@ -114,19 +113,22 @@ class Database(Dataset):
         self.file_queue.pop(0)
         self.slice_queue.pop(0)
 
-        self.nii_start_index+=1
-
-        input_set = self.inputs_sets[self.nii_start_index]
-        label_set = self.labels_sets[self.nii_start_index]
+        nii_load_index = self.nii_start_index%self.training_volumes
+        input_set = self.inputs_sets[nii_load_index]
+        label_set = self.labels_sets[nii_load_index]
 
         new_original_path = f"{self.label_folder}/{label_set}.nii.gz"
         new_distorted_path = f"{self.input_folder}/{input_set}.nii.gz"
 
+        start_time = time.time()
         new_labels = sitk.GetArrayFromImage(sitk.ReadImage(new_original_path))
         new_inputs = sitk.GetArrayFromImage(sitk.ReadImage(new_distorted_path))
+        print("Loading of %d.nii.gz completed, time taken: %2fs." % (nii_load_index,time.time()-start_time))
+
         self.file_queue.append([new_inputs, new_labels])
         self.slice_queue.append(new_inputs.shape[0])
 
+        self.nii_start_index+=1
         self.slice_num += self.slice_queue[-1]
 
         self.init_train_sequence()

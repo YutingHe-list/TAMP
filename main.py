@@ -16,12 +16,13 @@ from database import Database as my_database
 
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
-    parser.add_argument('--testing_mode', type=str, default="volume_testing", help="slice_testing, volume_testing, fine_tuning")
-    parser.add_argument('--LoRA_mode', type=str, default="load", help="none, get, load") 
+    parser.add_argument('--testing_mode', type=str, default="fine_tuning", help="slice_testing, volume_testing, fine_tuning")
+    parser.add_argument('--LoRA_mode', type=str, default="get", help="none, get, load") 
 
     parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
     parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
 
+    parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
     parser.add_argument('--LoRA_load_set', type=int, default=1)
     parser.add_argument('--queue_len', type=int, default=5)
@@ -39,7 +40,7 @@ def get_parser():
 
 def show_training_global_info(nii_epoch,train_loss):
     sys.stdout.write(
-        "\r"+" "*70+"\r[Epoch %d] [loss %f]\n" % (nii_epoch,train_loss.mloss())
+        "\n[Epoch %d] [loss %f]\n" % (nii_epoch,train_loss.mloss())
     )
 
 def show_training_local_info(nii_epoch,train_loss, batch_idx, total_batches):
@@ -204,7 +205,7 @@ def fine_tuning(opt):
 
     optimizer = Adan(model.parameters(), lr=opt.lr, weight_decay=opt.weight_decay, betas=opt.opt_betas, eps = opt.opt_eps, max_grad_norm=opt.max_grad_norm, no_prox=opt.no_prox)
 
-    for nii_epoch in range(opt.nii_start_index,opt.nii_start_index+opt.queue_len): #need change
+    for nii_epoch in range(opt.nii_start_index, opt.training_volumes+1):
 
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size)
         total_batches = len(train_loader)
