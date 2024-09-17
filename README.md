@@ -9,7 +9,7 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 - 2024.09.15: Release a large-scale simulated NICT dataset, **SimNICT**, with 3.6 million image pairs. [[Dataset](https://huggingface.co/datasets/YutingHe-list/SimNICT)]
 - 2024.09.15: Release the **MITAMP** official code for universal NICT enhancement. Welcome to use and evaluate! [[Paper](***)] 
 
-## Dependecies
+## Dependencies
 - Python 3.10.11
 - PyTorch 2.0.1
 
