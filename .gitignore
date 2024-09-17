@@ -1,2 +1,3 @@
 __pycache__/
-models/MITAMP_weight/
+weights/MITAMP_weight/MITAMP.pkl
+.gitignore
