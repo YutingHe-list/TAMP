@@ -12,7 +12,7 @@ from peft import set_peft_model_state_dict
 
 from network_MITAMP import MITNet
 from loss import DualDomainLoss as my_loss
-from database import Database as my_database
+from utils.database import Database as my_database
 
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
