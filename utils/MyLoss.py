@@ -9,7 +9,7 @@ from math import exp
 from torch.autograd import Variable
 import torch.nn.functional as F
 
-class DualDomainLoss():
+class MyLoss():
     def __init__(self):
         criterion_mse = nn.MSELoss()
         self.criterion_mse = criterion_mse
