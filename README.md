@@ -42,7 +42,7 @@ For your convenience, we provide two testing modes to demonstrate the universal 
 
 **Step 2**: Execute the following command to enhance the NICT slice stored in `--input_path` using MITAMP, and the enhanced slice will be saved in `--output_path`.
 ```bash
-python inference.py --testing_mode "slice_testing" --input_path "samples\slice_testing\input\LDCT_Low.nii.gz" --output_path "samples\slice_testing\output\LDCT_Low.nii.gz" --LoRA_mode "none"
+python inference.py --testing_mode "slice_testing" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "none"
 ```
 
 ### 3.2 Volume testing
@@ -52,11 +52,11 @@ python inference.py --testing_mode "slice_testing" --input_path "samples\slice_t
 **Step 2**: Execute the following command to enhance the NICT volume stored in `--input_path` using MITAMP, and the enhanced volume will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "volume_testing" --input_path "samples\volume_testing\input\1.nii.gz" --output_path "samples\volume_testing\output\1.nii.gz" --LoRA_mode "none"
+python inference.py --testing_mode "volume_testing" --input_path "samples/volume_testing/input/1.nii.gz" --output_path "samples/volume_testing/output/1.nii.gz" --LoRA_mode "none"
 ```
 
 ##  4. Adaptation with LoRA
-We provide the MITAMP-S adaptation method for specific NICT enhancement tasks in the [4.1 Model fine-tuning](#41-model-adaptation) section, followed by the corresponding [4.2 Slice testing](#42-slice-testing) and [4.3 Volume testing](#43-volume-testing) sections to demonstrate the performance of the adapted MITAMP-S.
+We provide the MITAMP-S adaptation method for specific NICT enhancement tasks in the [4.1 Model adaptation](#41-model-adaptation) section, followed by the corresponding [4.2 Slice testing](#42-slice-testing) and [4.3 Volume testing](#43-volume-testing) sections to demonstrate the performance of the adapted MITAMP-S.
 
 
 ### 4.1 Model adaptation
@@ -78,7 +78,7 @@ python adaptation_LoRA.py --input_folder "samples/adaptation/input" --label_fold
 **Step 2**: Execute the following command to enhance the NICT slice stored in `--input_path` using MITAMP-S, with the LoRA weight file from the epoch specified by `"LoRA_load_set"`. The enhanced slice will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "slice_testing" --input_path "samples\slice_testing\input\LDCT_Low.nii.gz" --output_path "samples\slice_testing\output\LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "slice_testing" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
 ```
 
 ### 4.3 Volume testing
@@ -89,7 +89,7 @@ python inference.py --testing_mode "slice_testing" --input_path "samples\slice_t
 **Step 2**: Execute the following command to enhance the NICT volume stored in `--input_path` using MITAMP-S, with the LoRA weight file from the epoch specified by `"LoRA_load_set"`. The enhanced volume will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "slice_testing" --input_path "samples\slice_testing\input\LDCT_Low.nii.gz" --output_path "samples\slice_testing\output\LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "slice_testing" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
 ```
 
 

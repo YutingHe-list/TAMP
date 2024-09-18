@@ -82,7 +82,7 @@ def load_model(opt):
     model.to(f"cuda:{opt.cuda_index}")    
     return model
 
-def fine_tuning(opt):
+def adaptation(opt):
     model = load_model(opt)
     train_dataset = my_dataset(opt)
     train_loss = my_loss()
@@ -127,4 +127,4 @@ if __name__ == '__main__':
     parser = get_parser()
     opt = parser.parse_args()
 
-    fine_tuning(opt)
+    adaptation(opt)
