@@ -1,1 +1,1 @@
-[NICT data stored here](../input) will be enhanced by our [MITAMP](../../../README.md#31-slice-testing) or [MITAMP-S](../../../README.md#42-slice-testing) and be stored in the folder.
+NICT data stored in the `samples/slice_testing/input` folder will be enhanced by our [MITAMP](../../../README.md#31-slice-testing) or [MITAMP-S](../../../README.md#42-slice-testing) and be stored in the folder.
