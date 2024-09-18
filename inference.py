@@ -16,7 +16,7 @@ from utils.MyDataset import MyDataset as my_dataset
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
     parser.add_argument('--testing_mode', type=str, default="slice_testing", help="slice_testing, volume_testing")
-    parser.add_argument('--LoRA_mode', type=str, default="get", help="none, load") 
+    parser.add_argument('--LoRA_mode', type=str, default="none", help="none, load") 
 
     parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
     parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")

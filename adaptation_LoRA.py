@@ -16,12 +16,13 @@ from utils.MyDataset import MyDataset as my_dataset
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
 
-    parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
-    parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
+    parser.add_argument('--input_folder', type=str, default="samples/adaptation/input")
+    parser.add_argument('--label_folder', type=str, default="samples/adaptation/label")
 
     parser.add_argument('--training_volumes', type=int, default=44, help="number of training volumes")
-    parser.add_argument('--nii_start_index', type=int, default=1)
     parser.add_argument('--queue_len', type=int, default=5)
+    parser.add_argument('--queue_iterate_times', type=int, default=2, help="number of training volumes")
+    parser.add_argument('--nii_start_index', type=int, default=1)
     parser.add_argument('--batch_size', type=int, default=5)
     parser.add_argument('--cuda_index', type=int, default=1)
 
