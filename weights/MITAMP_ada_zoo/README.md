@@ -1,1 +1,1 @@
-Place the weight of LoRA here.
+After [fine-tuning](../../README.md#41-model-adapting), the LoRA weight of MITAMP-S will be placed in this folder.

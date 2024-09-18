@@ -1,1 +1,1 @@
-[NICT data](../input) enhanced by our MITAMP and MITAMP-S will be placed here.
+[NICT data stored here](../input) will be enhanced by our [MITAMP](../../../README.md#32-volume-testing) or [MITAMP-S](../../../README.md#43-volume-testing) and be stored in the folder.
