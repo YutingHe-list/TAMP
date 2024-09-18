@@ -1,1 +1,0 @@
-We have provided eleven 2D NIFTI slices for each of the nine types of NICT data. You may also place your own NICT data to this folder.
