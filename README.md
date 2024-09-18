@@ -47,10 +47,10 @@ python main.py --testing_mode "slice_testing" --LoRA_mode "none"
 python main.py --testing_mode "volume_testing" --LoRA_mode "none"
 ```
 
-##  4. Model adapting and testing
+##  4. Model adaptation and testing
 We also provide the MITAMP-S adaptation code for specific NICT enhancement tasks using fine-tuning data in the [Model fine-tuning](#41-model-fine-tuning) section, followed with the corresponding [Slice testing](#42-slice-testing) and [Volume testing](#43-volume-testing).
 
-### 4.1 Model adapting
+### 4.1 Model adaptation
 **Step 1**: Download the [fine-tuning data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=k4rlON), which includes 44 volumes for each of the 9 types of NICT data, and place them in the `./samples/fine-tuning/input` and `./samples/fine-tuning/label` directory. 
 
 **Step 2**: Execute the following command to fine-tune MITAMP-S on specific types of NICT data. The parameter `NICT_setting` can be set to `"LDCT"`, `"LACT"`, or `"SVCT"`, and the parameter `defect_degree` can be set to `"Low"`, `"Mid"`, or `"High"`. The fine-tuned LoRA weights will be stored in the corresponding `./models/LoRA_weight` directory. 
