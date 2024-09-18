@@ -60,7 +60,7 @@ def standard(nii_slice):
 
 def load_model(opt):
     model = my_network()
-    state_dict = torch.load("models/MITAMP_weight/MITAMP.pkl")
+    state_dict = torch.load("weights/MITAMP_weight/MITAMP.pkl")
     model.load_state_dict(state_dict)
     
     with open('LoRA_path.txt', 'r', encoding='utf-8') as file:
@@ -87,7 +87,7 @@ def fine_tuning(opt):
     
     optimizer = Adan(model.parameters(), lr=opt.lr, weight_decay=opt.weight_decay, betas=opt.opt_betas, eps = opt.opt_eps, max_grad_norm=opt.max_grad_norm, no_prox=opt.no_prox)
 
-    for nii_epoch in range(opt.nii_start_index, opt.training_volumes+1):
+    for nii_epoch in range(opt.nii_start_index, opt.training_volumes*opt.queue_iterate_times+1):
 
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=opt.batch_size)
         total_batches = len(train_loader)

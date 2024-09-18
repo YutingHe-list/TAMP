@@ -1,1 +1,1 @@
-We have provided 11 3D NIFTI files as the label of corresponding NICT data. [Download](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjcUwRoGYMJDu7-w6jdbbNcBW9qDuZpwcX5aPaDZ95XuOw?e=Lhekiz)   any one of them and place it here, or use your own data.
+We have provided eleven 3D NIFTI files as the label of corresponding NICT data. [Download](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjcUwRoGYMJDu7-w6jdbbNcBW9qDuZpwcX5aPaDZ95XuOw?e=Lhekiz)   any one of them and place it here, or use your own data.

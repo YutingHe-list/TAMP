@@ -7,12 +7,12 @@ from torch.utils.data import Dataset
 class MyDataset(Dataset):
     def __init__(self, opt):       
 
-        self.input_folder = f"samples/fine-tuning/input/{opt.NICT_setting}_{opt.defect_degree}"
-        self.label_folder = f"samples/fine-tuning/label"
-        self.nii_start_index = opt.nii_start_index 
+        self.input_folder = f"samples/adaptation/input"
+        self.label_folder = f"samples/adaptation/label"
+        self.nii_start_index = opt.nii_start_index
         self.queue_len = opt.queue_len
         self.training_volumes = opt.training_volumes
-        self.labels_sets, self.inputs_sets = np.arange(1, opt.training_volumes+1), np.arange(1, 45)
+        self.labels_sets, self.inputs_sets = np.arange(1, opt.training_volumes+1), np.arange(1, opt.training_volumes+1)
 
         # read the nii files and load them into the queue
         self.load_nii_to_queue()

@@ -1,1 +1,1 @@
-We have provided eleven 3D NIFTI volumes for each of the 9 types of NICT data. [Download](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=I7Xh0f)   any one of them and place it here, or use your own NICT data.
+We have provided eleven 3D NIFTI volumes for each of the nine types of NICT data. [Download](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=I7Xh0f)   any one of them and place it here, or use your own NICT data.

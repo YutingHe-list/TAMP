@@ -5,7 +5,6 @@ import torch
 import argparse
 import SimpleITK as sitk
 from adan import Adan
-from peft import get_peft_model_state_dict
 from peft import LoraConfig
 from peft import get_peft_model
 from peft import set_peft_model_state_dict
@@ -21,6 +20,9 @@ def get_parser():
 
     parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
     parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
+
+    parser.add_argument('--input_path', type=str, default="samples/slice_testing/input/LDCT_Low.nii.gz")
+    parser.add_argument('--output_path', type=str, default="samples/slice_testing/output/LDCT_Low.nii.gz")
 
     parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
@@ -38,11 +40,6 @@ def get_parser():
 
     return parser
 
-def show_testing_local_info(input_nii_set,nii_folder,i,S):
-    sys.stdout.write(
-        f"\rinfering [{input_nii_set}.nii.gz] in {nii_folder}: {i}/{S}"
-    )
-
 def unstandard(standard_img):        
     mean=-556.882367
     variance=225653.408219
@@ -56,19 +53,13 @@ def standard(nii_slice):
     nii_slice = (nii_slice - mean) / np.sqrt(variance)
     return nii_slice
 
-def package_nii(modified_array,input_file_address,output_file_address):
-    image = sitk.ReadImage(input_file_address)
-    modified_image = sitk.GetImageFromArray(modified_array)
-    modified_image.CopyInformation(image)
-    sitk.WriteImage(modified_image, output_file_address)
-
 def load_model(opt):
     state_dict = torch.load("weights/MITAMP_weight/MITAMP.pkl")
     model = MITNet()
     model.load_state_dict(state_dict)
     
     if opt.LoRA_mode == "load":
-        with open('LoRA_path.txt', 'r', encoding='utf-8') as file:
+        with open('utils/LoRA_path.txt', 'r', encoding='utf-8') as file:
             content = file.read()
         modules_list = content.strip().replace("'", "").split(',\n')
         target_modules_txt = []
@@ -91,60 +82,39 @@ def load_model(opt):
 
 def slice_testing(opt):
     model = load_model(opt)
-
-    slice_testing_data_folder = "samples/slice_testing/input"
     
-    for input_path in input_paths:
-        input_image = sitk.ReadImage(input_path)
-        input = sitk.GetArrayFromImage(input_image)        
-        input_tensor = torch.tensor(standard(input), dtype=torch.float).unsqueeze(0).to(f"cuda:{opt.cuda_index}")
+    input_image = sitk.ReadImage(opt.input_path)
+    input = sitk.GetArrayFromImage(input_image)        
+    input_tensor = torch.tensor(standard(input), dtype=torch.float).unsqueeze(0).to(f"cuda:{opt.cuda_index}")
 
-        output_tensor = model(input_tensor)
+    output_tensor = model(input_tensor)
 
-        output = unstandard(np.array(output_tensor[0].cpu().detach())).astype('int16')
-        output_path = input_path.replace("input", "output")
-        output = sitk.GetImageFromArray(output)
-        output.CopyInformation(input_image)
-        sitk.WriteImage(output, output_path)
+    output = unstandard(np.array(output_tensor[0].cpu().detach())).astype('int16')
+    output = sitk.GetImageFromArray(output)
+    output.CopyInformation(input_image)
+    sitk.WriteImage(output, opt.output_path)
 
 
 def volume_testing(opt):
     model = load_model(opt)
 
-    volume_test_data_folder = "samples/volume_testing/input"
+    input_nii_image = sitk.ReadImage(opt.input_path)
+    input_nii_file =  sitk.GetArrayFromImage(input_nii_image)
 
-    if opt.LoRA_mode == "none": # 3.2
-        settings = ["LDCT", "LACT", "SVCT"]
-        degrees = ["Low", "Mid", "High"]
-        nii_folders=[]
-        for setting in settings:
-            for degree in degrees:
-                nii_folders.append(f"{volume_test_data_folder}/{setting}_{degree}")
+    input_nii_tensor = torch.tensor(standard(input_nii_file), dtype=torch.float).to(f"cuda:{opt.cuda_index}")
+    S,H,W=input_nii_file.shape
+    output_nii_file = np.zeros((S,H,W),dtype=np.int16)
 
-    elif opt.LoRA_mode == "load":   # 4.3
-        nii_folders = [f"{volume_test_data_folder}/{opt.NICT_setting}_{opt.defect_degree}"]
+    for i in range(S):
+        input_slice_tensor = input_nii_tensor[i].unsqueeze(0).unsqueeze(0)
+        output_nii_tensor = model(input_slice_tensor)            
+        output = unstandard(np.array(output_nii_tensor.cpu().detach())).astype('int16')
+        output_nii_file[i] = output[0][0]
+        sys.stdout.write(f"\rinfering {opt.input_path}: {i}/{S}")
 
-    for nii_folder in nii_folders:
-        for input_nii_set in range(1,2):
-            input_nii_path = f"{nii_folder}/{input_nii_set}.nii.gz"
-            input_nii_image = sitk.ReadImage(input_nii_path)
-            input_nii_file =  sitk.GetArrayFromImage(input_nii_image)
-
-            input_nii_tensor = torch.tensor(standard(input_nii_file), dtype=torch.float).to(f"cuda:{opt.cuda_index}")
-            S,H,W=input_nii_file.shape
-            output_nii_file = np.zeros((S,H,W),dtype=np.int16)
-
-            for i in range(S):
-                input_slice_tensor = input_nii_tensor[i].unsqueeze(0).unsqueeze(0)
-                output_nii_tensor = model(input_slice_tensor)            
-                output = unstandard(np.array(output_nii_tensor.cpu().detach())).astype('int16')
-                output_nii_file[i] = output[0][0]
-                show_testing_local_info(input_nii_set,nii_folder,i,S)
-
-            output_nii_image = sitk.GetImageFromArray(output_nii_file)
-            output_nii_image.CopyInformation(input_nii_image)
-            output_nii_path=input_nii_path.replace("input", "output")
-            sitk.WriteImage(output_nii_image, output_nii_path)
+    output_nii_image = sitk.GetImageFromArray(output_nii_file)
+    output_nii_image.CopyInformation(input_nii_image)
+    sitk.WriteImage(output_nii_image, opt.output_path)
 
 if __name__ == '__main__':
     parser = get_parser()
