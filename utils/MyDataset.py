@@ -12,7 +12,8 @@ class MyDataset(Dataset):
         self.nii_start_index = opt.nii_start_index
         self.queue_len = opt.queue_len
         self.training_volumes = opt.training_volumes
-        self.labels_sets, self.inputs_sets = np.arange(1, opt.training_volumes+1), np.arange(1, opt.training_volumes+1)
+        sets_range = np.arange(1, opt.training_volumes * opt.queue_iterate_times + 1)
+        self.labels_sets, self.inputs_sets = sets_range, sets_range
 
         # read the nii files and load them into the queue
         self.load_nii_to_queue()

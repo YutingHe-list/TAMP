@@ -6,6 +6,7 @@ from adan import Adan
 from peft import get_peft_model_state_dict
 from peft import LoraConfig
 from peft import get_peft_model
+import torch.optim.lr_scheduler as lr_scheduler
 
 from models.network_MITNet import MITNet as my_network
 from utils.MyLoss import MyLoss as my_loss
@@ -86,6 +87,7 @@ def fine_tuning(opt):
     train_loss = my_loss()
     
     optimizer = Adan(model.parameters(), lr=opt.lr, weight_decay=opt.weight_decay, betas=opt.opt_betas, eps = opt.opt_eps, max_grad_norm=opt.max_grad_norm, no_prox=opt.no_prox)
+    scheduler = lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
 
     for nii_epoch in range(opt.nii_start_index, opt.training_volumes*opt.queue_iterate_times+1):
 
@@ -116,6 +118,7 @@ def fine_tuning(opt):
         LoRA_state_path = f"weights/MITAMP_ada_zoo/LoRA_{nii_epoch}.pkl"
         torch.save(LoRA_state_dict,LoRA_state_path)
 
+        scheduler.step()
         train_dataset.refresh_next_train()
         train_loss.clear()   
 
