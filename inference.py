@@ -1,4 +1,5 @@
 import sys
+import os
 import numpy as np
 import torch
 import argparse
@@ -11,12 +12,14 @@ from models.network_MITNet import MITNet
 
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
-    parser.add_argument('--testing_mode', type=str, default="volume_testing", help="slice_testing, volume_testing")
+    parser.add_argument('--testing_mode', type=str, default="group_slice", help="single_slice, group_slice, single_volume, group_volume")
     parser.add_argument('--LoRA_mode', type=str, default="none", help="none, load") 
 
     parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
     parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
 
+    parser.add_argument('--input_folder', type=str, default="samples/volume_testing/input")
+    parser.add_argument('--input_folder', type=str, default="samples/volume_testing/input")
     parser.add_argument('--input_path', type=str, default="samples/volume_testing/input/1.nii.gz")
     parser.add_argument('--output_path', type=str, default="samples/volume_testing/output/1.nii.gz")
 
@@ -50,7 +53,7 @@ def standard(nii_slice):
     return nii_slice
 
 def load_model(opt):
-    state_dict = torch.load("weights/MITAMP_weight/MITAMP.pkl")
+    state_dict = torch.load("weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl")
     model = MITNet()
     model.load_state_dict(state_dict)
     
@@ -77,7 +80,7 @@ def load_model(opt):
     model.eval()
     return model
 
-def slice_testing(opt):
+def single_slice(opt):
     model = load_model(opt)
     
     input_image = sitk.ReadImage(opt.input_path)
@@ -91,7 +94,7 @@ def slice_testing(opt):
     output.CopyInformation(input_image)
     sitk.WriteImage(output, opt.output_path)
 
-def volume_testing(opt):
+def single_volume(opt):
     model = load_model(opt)
 
     input_nii_image = sitk.ReadImage(opt.input_path)
@@ -112,11 +115,61 @@ def volume_testing(opt):
     output_nii_image.CopyInformation(input_nii_image)
     sitk.WriteImage(output_nii_image, opt.output_path)
 
+
+def group_slice(opt):
+    model = load_model(opt)
+    input_files = os.listdir(opt.input_folder)
+    input_files = [f for f in input_files if f.endswith('.nii.gz')]
+
+    for input_file in input_files:
+        input_path = os.path.join(opt.input_folder, input_file)
+        output_path = os.path.join(opt.output_folder, input_file)
+        input_image = sitk.ReadImage(input_path)
+        input = sitk.GetArrayFromImage(input_image)        
+        input_tensor = torch.tensor(standard(input), dtype=torch.float).unsqueeze(0).to(f"cuda:{opt.cuda_index}")
+
+        output_tensor = model(input_tensor)
+
+        output = unstandard((output_tensor[0].cpu().detach()).numpy()).astype('int16')
+        output = sitk.GetImageFromArray(output)
+        output.CopyInformation(input_image)
+        sitk.WriteImage(output, output_path)
+
+def group_volume(opt):
+    model = load_model(opt)
+    input_files = os.listdir(opt.input_folder)
+    input_files = [f for f in input_files if f.endswith('.nii.gz')]
+
+    for input_file in input_files:
+        input_path = os.path.join(opt.input_folder, input_file)
+        output_path = os.path.join(opt.output_folder, input_file)
+        input_nii_image = sitk.ReadImage(input_path)
+        input_nii_file =  sitk.GetArrayFromImage(input_nii_image)
+
+        input_nii_tensor = torch.tensor(standard(input_nii_file), dtype=torch.float).to(f"cuda:{opt.cuda_index}")
+        S,H,W=input_nii_file.shape
+        output_nii_file = np.zeros((S,H,W),dtype=np.int16)
+
+        for i in range(S):
+            input_slice_tensor = input_nii_tensor[i].unsqueeze(0).unsqueeze(0)
+            output_nii_tensor = model(input_slice_tensor)            
+            output = unstandard(np.array(output_nii_tensor.cpu().detach())).astype('int16')
+            output_nii_file[i] = output[0][0]
+            sys.stdout.write(f"\rinfering {input_file}: {i}/{S}")
+
+        output_nii_image = sitk.GetImageFromArray(output_nii_file)
+        output_nii_image.CopyInformation(input_nii_image)
+        sitk.WriteImage(output_nii_image, output_path)
+
 if __name__ == '__main__':
     parser = get_parser()
     opt = parser.parse_args()
     
-    if opt.testing_mode == "slice_testing":
-        slice_testing(opt)
-    elif opt.testing_mode == "volume_testing":
-        volume_testing(opt)
+    if opt.testing_mode == "single_slice":
+        single_slice(opt)
+    elif opt.testing_mode == "single_volume":
+        single_volume(opt)
+    elif opt.testing_mode == "group_slice":
+        group_slice(opt)
+    elif opt.testing_mode == "group_volume":
+        group_volume(opt)

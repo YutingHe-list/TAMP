@@ -1,0 +1,4 @@
+einops==0.7.0
+timm==0.9.12
+SimpleITK==2.3.1
+peft==0.11.1
