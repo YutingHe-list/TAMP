@@ -33,7 +33,7 @@ $ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cud
 ```
 
 **Step 4**: install related packages
-``` bash
+```bash
 $ pip install "numpy<2"
 $ pip install einops timm SimpleITK peft
 ```
@@ -49,8 +49,12 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 python3 -m pip install git+https://github.com/sail-sg/Adan.git
 ```
 
-**Step 6**: Install [odl]() packages by following the recommended steps.
-odl
+**Step 6**: Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
+
+```bash
+$ pip install odl
+```
+Next, clone the ODL repository and overwrite the contents of the odl folder in your MITAMP environment with the files from the [/odl folder](https://github.com/odlgroup/odl/tree/master/odl) in the cloned repository.
 
 ## 2. Download the pre-trained MITAMP
 <!-- need added: one in paper, one for recent -->
