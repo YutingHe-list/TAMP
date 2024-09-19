@@ -128,8 +128,8 @@ python inference.py --testing_mode "volume_testing" --input_path "samples/volume
 ```
 
 
-## Acknowledgements
-- We highly appreciate
+<!-- ## Acknowledgements
+- We highly appreciate -->
 
 ## Reference
 ```
