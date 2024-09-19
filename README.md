@@ -17,9 +17,9 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 ## 1. Clone the repository and prepare environment
 **Step 1**: Clone the repository
 ```bash
-$ git clone https://github.com/YutingHe-list/MITAMP
-$ cd MITAMP/
-$ pip install -r requirements.txt
+git clone https://github.com/YutingHe-list/MITAMP
+cd MITAMP/
+pip install -r requirements.txt
 ```
 
 **Step 2**: Install the [Adan](https://github.com/sail-sg/Adan) and [ODL](https://github.com/odlgroup/odl) packages by following the recommended procedures.
@@ -38,7 +38,7 @@ python3 -m pip install git+https://github.com/sail-sg/Adan.git
 - **ODL**
 Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
 ```bash
-$ pip install odl
+pip install odl
 ```
 Next, clone the ODL repository and overwrite the contents of the odl folder in your MITAMP environment with the files from the `odl/odl` folder in the cloned repository.
 
@@ -108,15 +108,14 @@ python adaptation_LoRA.py --input_folder "samples/adaptation/input" --label_fold
 **Step 2**: To enhance **a single NICT slice file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced slice file will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "single_slice" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "single_slice" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
 ```
 
 To enhance **all NICT slice files** in the `--input_folder` directory using MITAMP-S, execute the following command. The enhanced slice files will be saved in `--output_folder` with the same name.
 
 ```bash
-python inference.py --testing_mode "group_slice" --input_folder "samples/slice_testing/input" --output_folder "samples/slice_testing/output" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "group_slice" --input_folder "samples/slice_testing/input" --output_folder "samples/slice_testing/output" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
 ```
-
 
 ### 4.3 Volume testing
 
@@ -125,13 +124,13 @@ python inference.py --testing_mode "group_slice" --input_folder "samples/slice_t
 **Step 2**: To enhance **a NICT volume file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced volume file will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "single_volume" --input_path "samples/volume_testing/input/1.nii.gz" --output_path "samples/volume_testing/output/1.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "single_volume" --input_path "samples/volume_testing/input/1.nii.gz" --output_path "samples/volume_testing/output/1.nii.gz" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
 ```
 
 To enhance **all NICT volume files** in the `--input_folder` directory using MITAMP-S, execute the following command. The enhanced volume files will be saved in `--output_folder` with the same name.
 
 ```bash
-python inference.py --testing_mode "group_volume" --input_folder "samples/volume_testing/input" --output_folder "samples/volume_testing/output" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "group_volume" --input_folder "samples/volume_testing/input" --output_folder "samples/volume_testing/output" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
 ```
 
 <!-- ## Acknowledgements
