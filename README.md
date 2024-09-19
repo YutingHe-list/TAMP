@@ -6,7 +6,7 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 <p align="center"><img width="100%" src="figs/background.png" /></p>
 
 ## News
-- 2024.09.15: Release a large-scale simulated NICT dataset, **SimNICT**, with 3.6 million image pairs. [[Dataset](https://huggingface.co/datasets/YutingHe-list/SimNICT)]
+- 2024.09.18: Release the adaptation code of MITAMP.
 - 2024.09.15: Release the **MITAMP** official code for universal NICT enhancement. Welcome to use and evaluate! [[Paper](***)] 
 
 ## Dependencies
@@ -14,13 +14,41 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 - PyTorch 2.0.1
 
 ## Usage of the pre-trained MITAMP
-## 1. Clone the repository
-<!-- 这里还要准备个最简单的环境 -->
+## 1. Clone the repository and prepare environment
+**Step 1**: clone the repository
 ```bash
 $ git clone https://github.com/YutingHe-list/MITAMP
 $ cd MITAMP/
-$ pip install -r requirements.txt
 ```
+
+**Step 2**: build a new environment
+``` bash
+$ conda create -n MITAMP python==3.10.13
+$ conda activate MITAMP
+```
+
+**Step 3**: set up basic pytorch
+``` bash
+$ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+
+**Step 4**: install related packages
+``` bash
+$ pip install pytorch-lightning torchmetrics einops timm odl SimpleITK peft
+$ pip install "numpy<2"
+```
+
+**Step 5**: Install [Adan](https://github.com/sail-sg/Adan) packages by following the recommended steps.
+
+Use `which nvcc` to locate the environment where CUDA is installed (e.g., `/usr/local/cuda/bin/nvcc`), and then modify and execute the following commands based on that path:
+
+```bash
+export CUDA_HOME=/usr/local/cuda   # Path to your environment with CUDA installed
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+python3 -m pip install git+https://github.com/sail-sg/Adan.git
+```
+
 ## 2. Download the pre-trained MITAMP
 <!-- need added: one in paper, one for recent -->
 | Weight     | Download  | Description                           |
@@ -89,7 +117,7 @@ python inference.py --testing_mode "slice_testing" --input_path "samples/slice_t
 **Step 2**: Execute the following command to enhance the NICT volume stored in `--input_path` using MITAMP-S, with the LoRA weight file from the epoch specified by `"LoRA_load_set"`. The enhanced volume will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "slice_testing" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "volume_testing" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
 ```
 
 

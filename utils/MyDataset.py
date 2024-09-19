@@ -10,7 +10,7 @@ class MyDataset(Dataset):
         self.input_folder = opt.input_folder
         self.label_folder = opt.label_folder
         self.nii_start_index = opt.nii_start_index
-        self.queue_len = opt.queue_len
+        self.queue_len = opt.queue_len  
         self.training_volumes = opt.training_volumes
         sets_range = np.arange(1, opt.training_volumes * opt.queue_iterate_times + 1)
         self.labels_sets, self.inputs_sets = sets_range, sets_range

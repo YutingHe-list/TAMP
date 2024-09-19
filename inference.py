@@ -26,12 +26,12 @@ def get_parser():
 
     parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
-    parser.add_argument('--LoRA_load_set', type=int, default=44)
+    parser.add_argument('--LoRA_load_set', type=int, default=88)
     parser.add_argument('--queue_len', type=int, default=5)
     parser.add_argument('--batch_size', type=int, default=5)
     parser.add_argument('--cuda_index', type=int, default=1)
 
-    parser.add_argument("--lr", type=float, default=0.00005, help="adam: learning rate")
+    parser.add_argument("--lr", type=float, default=0.0005, help="adam: learning rate")
     parser.add_argument('--weight_decay', type=float, default=0.02,  help='weight decay, similar one used in AdamW (default: 0.02)')
     parser.add_argument('--opt_betas', default=[0.98, 0.92, 0.99], type=float, nargs='+', metavar='BETA', help='optimizer betas in Adan (default: None, use opt default [0.98, 0.92, 0.99] in Adan)')
     parser.add_argument('--opt_eps', default=1e-8, type=float, metavar='EPSILON', help='optimizer epsilon to avoid the bad case where second-order moment is zero (default: None, use opt default 1e-8 in adan)')
