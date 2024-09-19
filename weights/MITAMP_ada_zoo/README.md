@@ -1,1 +1,0 @@
-After [adaptation](../../README.md#41-model-adaptation), the LoRA weight of MITAMP-S will be placed in this folder.
