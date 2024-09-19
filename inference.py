@@ -1,35 +1,31 @@
-import os
 import sys
 import numpy as np
 import torch
 import argparse
 import SimpleITK as sitk
-from adan import Adan
 from peft import LoraConfig
 from peft import get_peft_model
 from peft import set_peft_model_state_dict
 
 from models.network_MITNet import MITNet
-from utils.MyLoss import MyLoss as my_loss
-from utils.MyDataset import MyDataset as my_dataset
 
 def get_parser():
     parser = argparse.ArgumentParser(description='MAIN FUNCTION PARSER')
-    parser.add_argument('--testing_mode', type=str, default="slice_testing", help="slice_testing, volume_testing")
+    parser.add_argument('--testing_mode', type=str, default="volume_testing", help="slice_testing, volume_testing")
     parser.add_argument('--LoRA_mode', type=str, default="none", help="none, load") 
 
     parser.add_argument('--NICT_setting', type=str, default="LDCT", help="LDCT, LACT, SVCT")
     parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
 
-    parser.add_argument('--input_path', type=str, default="samples/slice_testing/input/LDCT_Low.nii.gz")
-    parser.add_argument('--output_path', type=str, default="samples/slice_testing/output/LDCT_Low.nii.gz")
+    parser.add_argument('--input_path', type=str, default="samples/volume_testing/input/1.nii.gz")
+    parser.add_argument('--output_path', type=str, default="samples/volume_testing/output/1.nii.gz")
 
     parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
-    parser.add_argument('--LoRA_load_set', type=int, default=88)
+    parser.add_argument('--LoRA_load_set', type=int, default=44)
     parser.add_argument('--queue_len', type=int, default=5)
     parser.add_argument('--batch_size', type=int, default=5)
-    parser.add_argument('--cuda_index', type=int, default=1)
+    parser.add_argument('--cuda_index', type=int, default=3)
 
     parser.add_argument("--lr", type=float, default=0.0005, help="adam: learning rate")
     parser.add_argument('--weight_decay', type=float, default=0.02,  help='weight decay, similar one used in AdamW (default: 0.02)')
@@ -73,11 +69,12 @@ def load_model(opt):
         )
         model = get_peft_model(model, config)
         
-        lora_path = f"models/LoRA_weight/{opt.NICT_setting}_{opt.defect_degree}/LoRA_{opt.LoRA_load_set}.pkl"
+        lora_path = f"weights/MITAMP_ada_zoo/LoRA_{opt.LoRA_load_set}.pkl"
         lora_state_dict = torch.load(lora_path,map_location="cpu")
         set_peft_model_state_dict(model,lora_state_dict)
 
     model.to(f"cuda:{opt.cuda_index}")    
+    model.eval()
     return model
 
 def slice_testing(opt):
@@ -89,11 +86,10 @@ def slice_testing(opt):
 
     output_tensor = model(input_tensor)
 
-    output = unstandard(np.array(output_tensor[0].cpu().detach())).astype('int16')
+    output = unstandard((output_tensor[0].cpu().detach()).numpy()).astype('int16')
     output = sitk.GetImageFromArray(output)
     output.CopyInformation(input_image)
     sitk.WriteImage(output, opt.output_path)
-
 
 def volume_testing(opt):
     model = load_model(opt)

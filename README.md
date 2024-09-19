@@ -34,8 +34,8 @@ $ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cud
 
 **Step 4**: install related packages
 ``` bash
-$ pip install pytorch-lightning torchmetrics einops timm odl SimpleITK peft
 $ pip install "numpy<2"
+$ pip install einops timm SimpleITK peft
 ```
 
 **Step 5**: Install [Adan](https://github.com/sail-sg/Adan) packages by following the recommended steps.
@@ -48,6 +48,9 @@ export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 python3 -m pip install git+https://github.com/sail-sg/Adan.git
 ```
+
+**Step 6**: Install [odl]() packages by following the recommended steps.
+odl
 
 ## 2. Download the pre-trained MITAMP
 <!-- need added: one in paper, one for recent -->
@@ -117,7 +120,7 @@ python inference.py --testing_mode "slice_testing" --input_path "samples/slice_t
 **Step 2**: Execute the following command to enhance the NICT volume stored in `--input_path` using MITAMP-S, with the LoRA weight file from the epoch specified by `"LoRA_load_set"`. The enhanced volume will be saved in `--output_path`.
 
 ```bash
-python inference.py --testing_mode "volume_testing" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
+python inference.py --testing_mode "volume_testing" --input_path "samples/volume_testing/input/1.nii.gz" --output_path "samples/volume_testing/output/1.nii.gz" --LoRA_mode "load" --LoRA_load_set 88
 ```
 
 

@@ -19,14 +19,14 @@ def get_parser():
     parser.add_argument('--input_folder', type=str, default="samples/adaptation/input")
     parser.add_argument('--label_folder', type=str, default="samples/adaptation/label")
 
-    parser.add_argument('--training_volumes', type=int, default=44, help="number of training volumes")
+    parser.add_argument('--training_volumes', type=int, default=7, help="number of training volumes")
     parser.add_argument('--queue_len', type=int, default=5)
-    parser.add_argument('--queue_iterate_times', type=int, default=2, help="number of training volumes")
+    parser.add_argument('--queue_iterate_times', type=int, default=1, help="number of training volumes")
     parser.add_argument('--nii_start_index', type=int, default=1)
     parser.add_argument('--batch_size', type=int, default=5)
-    parser.add_argument('--cuda_index', type=int, default=1)
+    parser.add_argument('--cuda_index', type=int, default=3)
 
-    parser.add_argument("--lr", type=float, default=0.00005, help="adam: learning rate")
+    parser.add_argument("--lr", type=float, default=0.0005, help="adam: learning rate")
     parser.add_argument('--weight_decay', type=float, default=0.02,  help='weight decay, similar one used in AdamW (default: 0.02)')
     parser.add_argument('--opt_betas', default=[0.98, 0.92, 0.99], type=float, nargs='+', metavar='BETA', help='optimizer betas in Adan (default: None, use opt default [0.98, 0.92, 0.99] in Adan)')
     parser.add_argument('--opt_eps', default=1e-8, type=float, metavar='EPSILON', help='optimizer epsilon to avoid the bad case where second-order moment is zero (default: None, use opt default 1e-8 in adan)')
@@ -65,7 +65,7 @@ def load_model(opt):
     state_dict = torch.load("weights/MITAMP_weight/MITAMP.pkl")
     model.load_state_dict(state_dict)
     
-    with open('LoRA_path.txt', 'r', encoding='utf-8') as file:
+    with open('utils/LoRA_path.txt', 'r', encoding='utf-8') as file:
         content = file.read()
     modules_list = content.strip().replace("'", "").split(',\n')
     target_modules_txt = []

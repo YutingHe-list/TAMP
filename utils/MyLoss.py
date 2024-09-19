@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-# import pytorch_ssim
 import odl
 import numpy as np
 from torchvision.models import vgg19
