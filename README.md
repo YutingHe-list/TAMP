@@ -19,27 +19,11 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 ```bash
 $ git clone https://github.com/YutingHe-list/MITAMP
 $ cd MITAMP/
+$ pip install -r requirements.txt
 ```
 
-**Step 2**: build a new environment
-``` bash
-$ conda create -n MITAMP python==3.10.13
-$ conda activate MITAMP
-```
-
-**Step 3**: set up basic pytorch
-``` bash
-$ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
-```
-
-**Step 4**: install related packages
-```bash
-$ pip install "numpy<2"
-$ pip install einops timm SimpleITK peft
-```
-
-**Step 5**: Install [Adan](https://github.com/sail-sg/Adan) packages by following the recommended steps.
-
+**Step 2**: install [Adan](https://github.com/sail-sg/Adan) and [ODL](https://github.com/odlgroup/odl) packages by following the recommended steps.
+- **Adan**
 Use `which nvcc` to locate the environment where CUDA is installed (e.g., `/usr/local/cuda/bin/nvcc`), and then modify and execute the following commands based on that path:
 
 ```bash
@@ -49,8 +33,7 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 python3 -m pip install git+https://github.com/sail-sg/Adan.git
 ```
 
-**Step 6**: Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
-
+- **ODL**: Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
 ```bash
 $ pip install odl
 ```
