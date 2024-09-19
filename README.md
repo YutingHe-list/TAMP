@@ -15,15 +15,17 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 
 ## Usage of the pre-trained MITAMP
 ## 1. Clone the repository and prepare environment
-**Step 1**: clone the repository
+**Step 1**: Clone the repository
 ```bash
 $ git clone https://github.com/YutingHe-list/MITAMP
 $ cd MITAMP/
 $ pip install -r requirements.txt
 ```
 
-**Step 2**: install [Adan](https://github.com/sail-sg/Adan) and [ODL](https://github.com/odlgroup/odl) packages by following the recommended steps.
+**Step 2**: Install the [Adan](https://github.com/sail-sg/Adan) and [ODL](https://github.com/odlgroup/odl) packages by following the recommended procedures.
+
 - **Adan**
+
 Use `which nvcc` to locate the environment where CUDA is installed (e.g., `/usr/local/cuda/bin/nvcc`), and then modify and execute the following commands based on that path:
 
 ```bash
@@ -33,11 +35,12 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 python3 -m pip install git+https://github.com/sail-sg/Adan.git
 ```
 
-- **ODL**: Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
+- **ODL**
+Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
 ```bash
 $ pip install odl
 ```
-Next, clone the ODL repository and overwrite the contents of the odl folder in your MITAMP environment with the files from the [/odl folder](https://github.com/odlgroup/odl/tree/master/odl) in the cloned repository.
+Next, clone the ODL repository and overwrite the contents of the odl folder in your MITAMP environment with the files from the `odl/odl` folder in the cloned repository.
 
 ## 2. Download the pre-trained MITAMP
 <!-- need added: one in paper, one for recent -->
