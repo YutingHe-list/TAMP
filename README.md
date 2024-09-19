@@ -36,7 +36,7 @@ python3 -m pip install git+https://github.com/sail-sg/Adan.git
 ```
 
 - **ODL**
-Install the [ODL](https://github.com/odlgroup/odl) package by following the steps below:
+Install the ODL package by following the steps below:
 ```bash
 pip install odl
 ```

@@ -25,7 +25,7 @@ def get_parser():
 
     parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
-    parser.add_argument('--LoRA_load_set', type=int, default=44)
+    parser.add_argument('--LoRA_path', type=str, default="weights/MITAMP_adaptation_weight/LoRA_1.pkl")
     parser.add_argument('--queue_len', type=int, default=5)
     parser.add_argument('--batch_size', type=int, default=5)
     parser.add_argument('--cuda_index', type=int, default=3)
@@ -72,8 +72,7 @@ def load_model(opt):
         )
         model = get_peft_model(model, config)
         
-        lora_path = f"weights/MITAMP_ada_zoo/LoRA_{opt.LoRA_load_set}.pkl"
-        lora_state_dict = torch.load(lora_path,map_location="cpu")
+        lora_state_dict = torch.load(opt.LoRA_path,map_location="cpu")
         set_peft_model_state_dict(model,lora_state_dict)
 
     model.to(f"cuda:{opt.cuda_index}")    
@@ -114,7 +113,6 @@ def single_volume(opt):
     output_nii_image = sitk.GetImageFromArray(output_nii_file)
     output_nii_image.CopyInformation(input_nii_image)
     sitk.WriteImage(output_nii_image, opt.output_path)
-
 
 def group_slice(opt):
     model = load_model(opt)
