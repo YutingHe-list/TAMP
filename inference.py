@@ -19,7 +19,7 @@ def get_parser():
     parser.add_argument('--defect_degree', type=str, default="Low", help="Low, Mid, High")
 
     parser.add_argument('--input_folder', type=str, default="samples/volume_testing/input")
-    parser.add_argument('--input_folder', type=str, default="samples/volume_testing/input")
+    parser.add_argument('--output_folder', type=str, default="samples/volume_testing/output")
     parser.add_argument('--input_path', type=str, default="samples/volume_testing/input/1.nii.gz")
     parser.add_argument('--output_path', type=str, default="samples/volume_testing/output/1.nii.gz")
 
