@@ -73,7 +73,7 @@ To enhance **all NICT slice files** in the `--input_folder` directory using MITA
 python inference.py --testing_mode "group_slice" --input_folder "samples/slice_testing/input" --output_folder "samples/slice_testing/output" --LoRA_mode "none"
 ```
 
-https://github.com/user-attachments/assets/3cf3e843-f434-46f4-aade-05e1a75b8be2
+https://github.com/user-attachments/assets/651b3347-5208-4656-aee8-e81b10c8cc3a
 
 ### 3.2 Volume testing
 
