@@ -1,6 +1,6 @@
-# MITAMP-Adapted Model Zoom
+# MITAMP-Adapted Model Zoo
 
-Here we provide a model zoom that releases the adapted weights of our MITAMP in different downstream tasks.
+Here we provide a model zoo that releases the adapted weights of our MITAMP in different downstream tasks.
 
 ## News
 - **2024.09.25** We have released the MITAMP-S models that evaluated in our [paper](*******).
