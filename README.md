@@ -6,7 +6,8 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 <p align="center"><img width="100%" src="figs/background.png" /></p>
 
 ## News
-- 2024.09.18: Release the adaptation code of MITAMP.
+- 2024.09.25: We have opened a [MITAMP-adapted Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md) to release the adapted MITAMP in different downstream tasks.
+- 2024.09.18: Release the adaptation code of MITAMP together with an adaptation [dataset]().
 - 2024.09.15: Release the **MITAMP** official code for universal NICT enhancement. Welcome to use and evaluate! [[Paper](***)] 
 
 ## Dependencies
