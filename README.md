@@ -36,7 +36,7 @@ Waitting
 
 # Playground: Quick start of the MITAMP
 - [ ] You can try the MITAMP via the [Jupeter Notebook](). 
-- [x] You can implement the MITAMP on your surver via the following operations.
+- [x] You can implement the MITAMP on your server via the following operations.
 
 ## 1. Clone the repository and prepare environment
 
