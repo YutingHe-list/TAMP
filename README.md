@@ -152,5 +152,6 @@ Waitting
 ## Ongoing
 - [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
 - [ ] Release pre-training code of MITAMP.
+- [x] Construct a MITAMP-adapted Model Zoo.
 - [x] Release adaptation code of MITAMP-S.
 - [x] Release inference code and pretrained weights of MITAMP.
