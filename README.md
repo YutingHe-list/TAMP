@@ -19,7 +19,7 @@ We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/d
 - You can try to find an adapted MITAMP that meets the scene you need in model zoo, and it will have better performance.
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
-## Usage of the MITAMP
+## Playground: Quick start of the MITAMP
 ## 1. Clone the repository and prepare environment
 **Step 1**: Clone the repository
 ```bash
@@ -139,6 +139,8 @@ To enhance **all NICT volume files** in the `--input_folder` directory using MIT
 ```bash
 python inference.py --testing_mode "group_volume" --input_folder "samples/volume_testing/input" --output_folder "samples/volume_testing/output" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
 ```
+
+## Demo
 
 <!-- ## Acknowledgements
 - We highly appreciate -->
