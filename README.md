@@ -16,7 +16,7 @@ We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/d
 - You can try to find an adapted MITAMP that meets the scene you need in model zoo, and it will have better performance.
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
-## Playground: Quick start of the MITAMP
+# Playground: Quick start of the MITAMP
 ## 1. Clone the repository and prepare environment
 
 ### Dependencies
