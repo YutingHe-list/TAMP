@@ -16,6 +16,23 @@ We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/d
 - You can try to find an adapted MITAMP that meets the scene you need in model zoo, and it will have better performance.
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
+## Demo
+
+<!-- ## Acknowledgements
+- We highly appreciate -->
+
+## Reference
+```
+Waitting
+```
+
+## Ongoing
+- [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
+- [ ] Release pre-training code of MITAMP.
+- [x] Construct a MITAMP-adapted Model Zoo.
+- [x] Release adaptation code of MITAMP-S.
+- [x] Release inference code and pretrained weights of MITAMP.
+
 # Playground: Quick start of the MITAMP
 ## 1. Clone the repository and prepare environment
 
@@ -142,19 +159,3 @@ To enhance **all NICT volume files** in the `--input_folder` directory using MIT
 python inference.py --testing_mode "group_volume" --input_folder "samples/volume_testing/input" --output_folder "samples/volume_testing/output" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
 ```
 
-## Demo
-
-<!-- ## Acknowledgements
-- We highly appreciate -->
-
-## Reference
-```
-Waitting
-```
-
-## Ongoing
-- [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
-- [ ] Release pre-training code of MITAMP.
-- [x] Construct a MITAMP-adapted Model Zoo.
-- [x] Release adaptation code of MITAMP-S.
-- [x] Release inference code and pretrained weights of MITAMP.
