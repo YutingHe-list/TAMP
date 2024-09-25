@@ -3,7 +3,7 @@
 Here we provide a model zoom that releases the adapted weights of our MITAMP in different downstream tasks.
 
 ## Model Record
-- **Name:** MITAMP-S
+### MITAMP-S
 - **Adaptation method:** Low-rant adaptation
 - **NICT setting:** Low dose CT
 - **Target:** Whole human body
