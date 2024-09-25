@@ -59,7 +59,7 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 Download the model checkpoint and save it to `./weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl`.
 
 ## Option: playground
-We have provided a [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset. If you want to test the MITAMP on NICT volumes or try the adaptation of our MITAMP, you can download the testing data and the training data with different NICT settings in specific folds.
+We have provided a simple [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset. If you want to test the MITAMP on NICT volumes or try the adaptation of our MITAMP, you can download the testing data and the training data with different NICT settings in specific folds.
 
 ## 3. Universal enhancement
 For your convenience, we provide two testing modes to demonstrate the universal NICT enhancement performance of MITAMP:
@@ -83,7 +83,7 @@ python inference.py --testing_mode "group_slice" --input_folder "samples/slice_t
 ```
 
 ### 3.2 Volume testing
-**Step 1**: You can put the [testing data](#option:-playground) with the shape [S, H, W] or use your own data by placing it in the `./samples/volume_testing/input` directory. 
+**Step 1**: You can put the [testing data](#option-playground) with the shape [S, H, W] or use your own data by placing it in the `./samples/volume_testing/input` directory. 
 
 **Step 2**: To enhance **a single NICT volume file** specified by `--input_path` using MITAMP, execute the following command. The enhanced volume will be saved at `--output_path`.
 
