@@ -29,11 +29,15 @@ Waitting
 ## Ongoing
 - [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
 - [ ] Release pre-training code of MITAMP.
+- [ ] MITAMP Toolbox on 3D Slicer.
 - [x] Construct a MITAMP-adapted Model Zoo.
 - [x] Release adaptation code of MITAMP-S.
 - [x] Release inference code and pretrained weights of MITAMP.
 
 # Playground: Quick start of the MITAMP
+- [ ] You can try the MITAMP via the [Jupeter Notebook](). 
+- [x] You can implement the MITAMP on your surver via the following operations.
+
 ## 1. Clone the repository and prepare environment
 
 ### Dependencies
