@@ -54,12 +54,12 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 <!-- need added: one in paper, one for recent -->
 | Weight     | Download  | Description                           |
 |------------|-----------|---------------------------------------|
-| MITAMP_pretrain.pkl | [link](https://seunic-my.sharepoint.cn/:u:/g/personal/220232198_seu_edu_cn/EYkIR7NFZIRPoU8sMgr9A9MBKDQyEg91-43OSGLMvL4fFQ?e=2xsa3w) | pre-trained universal NICT enhancement model                     |
+| MITAMP_pretrain.pkl | [link](https://seunic-my.sharepoint.cn/:u:/g/personal/220232198_seu_edu_cn/EYkIR7NFZIRPoU8sMgr9A9MBKDQyEg91-43OSGLMvL4fFQ?e=2xsa3w) |Pre-trained universal NICT enhancement model|
 
 Download the model checkpoint and save it to `./weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl`.
 
-## Option: playground
-We have provided a simple [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset. If you want to test the MITAMP on NICT volumes or try the adaptation of our MITAMP, you can download the testing data and the training data with different NICT settings in specific folds.
+## Option: A simple dataset for quick start
+We have provided a simple [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the MITAMP on NICT volumes or try the adaptation of our MITAMP, you can download the testing data and the training data with different NICT settings in specific folds.
 
 ## 3. Universal enhancement
 For your convenience, we provide two testing modes to demonstrate the universal NICT enhancement performance of MITAMP:
@@ -83,7 +83,7 @@ python inference.py --testing_mode "group_slice" --input_folder "samples/slice_t
 ```
 
 ### 3.2 Volume testing
-**Step 1**: You can put the [testing data](#option-playground) with the shape [S, H, W] or use your own data by placing it in the `./samples/volume_testing/input` directory. 
+**Step 1**: You can put the [testing data](#option-a-simple-dataset-for-quick-start) with the shape [S, H, W] or use your own data by placing it in the `./samples/volume_testing/input` directory. 
 
 **Step 2**: To enhance **a single NICT volume file** specified by `--input_path` using MITAMP, execute the following command. The enhanced volume will be saved at `--output_path`.
 
@@ -102,7 +102,7 @@ We provide the MITAMP-S adaptation method for specific NICT enhancement tasks in
 
 
 ### 4.1 Model adaptation
-**Step 1**: We provide [training data](#option:-playground) for MITAMP adaptation. Download the NICT volumes from a specific NICT type folder and place them in the `./samples/adaptation/input` directory. Then, download the corresponding label volumes with the same name and place them in the `./samples/adaptation/label` directory.
+**Step 1**: We provide [training data](#option-a-simple-dataset-for-quick-start) for MITAMP adaptation. Download the NICT volumes from a specific NICT type folder and place them in the `./samples/adaptation/input` directory. Then, download the corresponding label volumes with the same name and place them in the `./samples/adaptation/label` directory.
 
 **Step 2**: Execute the following command to fine-tune MITAMP-S to adapt to the specific training data located in the `"input_folder"` and `"label_folder"`, with the number of volumes set by `"training_volumes"`. The parameters `"queue_len"` and `"queue_iterate_times"` control the sampling method for the training data, consistent with the method described in the paper. The LoRA weights of MITAMP-S will be stored in the `./weights/LoRA_weight` directory.
 
@@ -127,7 +127,7 @@ python inference.py --testing_mode "group_slice" --input_folder "samples/slice_t
 
 ### 4.3 Volume testing
 
-**Step 1**: The [testing data](#option:-playground) with the shape [S, H, W] is the same as that used in the [3.2 Volume testing](#32-volume-testing) section. Download and place them in the `./samples/volume_testing/input` directory, or use your own data by placing it in the same directory.
+**Step 1**: The [testing data](#option-a-simple-dataset-for-quick-start) with the shape [S, H, W] is the same as that used in the [3.2 Volume testing](#32-volume-testing) section. Download and place them in the `./samples/volume_testing/input` directory, or use your own data by placing it in the same directory.
 
 **Step 2**: To enhance **a NICT volume file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced volume file will be saved at `--output_path`.
 
