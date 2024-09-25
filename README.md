@@ -1,5 +1,5 @@
 # MITAMP
-[![Model Zoo](https://img.shields.io/badge/Model%20Zoo-8A2BE2)](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md)
+[![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md)
 
 The official code of MITAMP paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](***)". 
 
