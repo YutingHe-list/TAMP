@@ -58,8 +58,6 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 
 Download the model checkpoint and save it to `./weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl`.
 
-## Playground: 
-
 ### 3. Universal enhancement
 For your convenience, we provide two testing modes to demonstrate the universal NICT enhancement performance of MITAMP:
 - [Slice testing](#31-slice-testing) enhances 2D NIFTI data with the shape [1, H, W].
@@ -67,10 +65,9 @@ For your convenience, we provide two testing modes to demonstrate the universal 
 
 #### 3.1 Slice testing
 
-**Step 1**:We have provided testing data in the `./samples/slice_testing/input` directory with the shape [1, H, W]. You can also use your own data by placing it in this directory.
+We have provided testing data in the `./samples/slice_testing/input` directory with the shape [1, H, W]. You can also use your own data by placing it in this directory. 
 
-
-**Step 2**: To enhance **a single NICT slice file** specified by `--input_path` using MITAMP, execute the following command. The enhanced slice file will be saved at `--output_path`.
+To enhance **a single NICT slice file** specified by `--input_path` using MITAMP, execute the following command. The enhanced slice file will be saved at `--output_path`.
 
 ```bash
 python inference.py --testing_mode "single_slice" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "none"
@@ -84,9 +81,9 @@ python inference.py --testing_mode "group_slice" --input_folder "samples/slice_t
 
 #### 3.2 Volume testing
 
-**Step 1**: We provide [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=udKtLl) with the shape [S, H, W]. You can download them or use your own data by placing it in the `./samples/volume_testing/input` directory.
+We provide [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=udKtLl) with the shape [S, H, W]. You can download them or use your own data by placing it in the `./samples/volume_testing/input` directory. 
 
-**Step 2**: To enhance **a single NICT volume file** specified by `--input_path` using MITAMP, execute the following command. The enhanced volume will be saved at `--output_path`.
+To enhance **a single NICT volume file** specified by `--input_path` using MITAMP, execute the following command. The enhanced volume will be saved at `--output_path`.
 
 ```bash
 python inference.py --testing_mode "single_volume" --input_path "samples/volume_testing/input/1.nii.gz" --output_path "samples/volume_testing/output/1.nii.gz" --LoRA_mode "none"
@@ -103,21 +100,18 @@ We provide the MITAMP-S adaptation method for specific NICT enhancement tasks in
 
 
 #### 4.1 Model adaptation
+We provide [training data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=vOzMUq) for MITAMP adaptation. Download the NICT volumes from a specific NICT type folder and place them in the `./samples/adaptation/input` directory. Then, download the corresponding label volumes with the same name and place them in the `./samples/adaptation/label` directory.
 
-
-**Step 1**: We provide [training data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=vOzMUq) for MITAMP adaptation. Download the NICT volumes from a specific NICT type folder and place them in the `./samples/adaptation/input` directory. Then, download the corresponding label volumes with the same name and place them in the `./samples/adaptation/label` directory.
-
-
-**Step 2**: Execute the following command to fine-tune MITAMP-S to adapt to the specific training data located in the `"input_folder"` and `"label_folder"`, with the number of volumes set by `"training_volumes"`. The parameters `"queue_len"` and `"queue_iterate_times"` control the sampling method for the training data, consistent with the method described in the paper. The LoRA weights of MITAMP-S will be stored in the `./weights/LoRA_weight` directory.
+Execute the following command to fine-tune MITAMP-S to adapt to the specific training data located in the `"input_folder"` and `"label_folder"`, with the number of volumes set by `"training_volumes"`. The parameters `"queue_len"` and `"queue_iterate_times"` control the sampling method for the training data, consistent with the method described in the paper. The LoRA weights of MITAMP-S will be stored in the `./weights/LoRA_weight` directory.
 
 ```bash
 python adaptation_LoRA.py --input_folder "samples/adaptation/input" --label_folder "samples/adaptation/label" --training_volumes 44 --queue_len 5 --queue_iterate_times 2
 ```
 
 #### 4.2 Slice testing
-**Step 1**: We have provided testing data in the `./samples/slice_testing/input` directory, which is the same data used in the [3.1 Slice testing](#31-slice-testing) section. You can also use your own data by placing it in this directory.
+We have provided testing data in the `./samples/slice_testing/input` directory, which is the same data used in the [3.1 Slice testing](#31-slice-testing) section. You can also use your own data by placing it in this directory. 
 
-**Step 2**: To enhance **a single NICT slice file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced slice file will be saved at `--output_path`.
+To enhance **a single NICT slice file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced slice file will be saved at `--output_path`.
 
 ```bash
 python inference.py --testing_mode "single_slice" --input_path "samples/slice_testing/input/LDCT_Low.nii.gz" --output_path "samples/slice_testing/output/LDCT_Low.nii.gz" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
@@ -131,9 +125,9 @@ python inference.py --testing_mode "group_slice" --input_folder "samples/slice_t
 
 #### 4.3 Volume testing
 
-**Step 1**: The [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=udKtLl) with the shape [S, H, W] is the same as that used in the [3.2 Volume testing](#32-volume-testing) section. Download and place them in the `./samples/volume_testing/input` directory, or use your own data by placing it in the same directory.
+The [testing data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EoXbDCJ9XYBKhzx72KVfWWQBGeFWqbIzT0MJWUXYOSB1Ag?e=udKtLl) with the shape [S, H, W] is the same as that used in the [3.2 Volume testing](#32-volume-testing) section. Download and place them in the `./samples/volume_testing/input` directory, or use your own data by placing it in the same directory.
 
-**Step 2**: To enhance **a NICT volume file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced volume file will be saved at `--output_path`.
+To enhance **a NICT volume file** specified by `--input_path` using MITAMP-S, execute the following command. The LoRA weight file is specified by `"LoRA_path"`, and the enhanced volume file will be saved at `--output_path`.
 
 ```bash
 python inference.py --testing_mode "single_volume" --input_path "samples/volume_testing/input/1.nii.gz" --output_path "samples/volume_testing/output/1.nii.gz" --LoRA_mode "load" --LoRA_path "weights/MITAMP_adaptation_weight/LoRA_88.pkl"
