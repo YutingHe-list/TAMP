@@ -14,10 +14,10 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 - PyTorch 2.0.1
 
 ## MITAMP-adapted Model Zoo
-We are hosting a [Model Zoo]() to release the adapted MITAMP in different downstream tasks.
+We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md) to release the adapted MITAMP in different downstream tasks.
 
 - You can try to find an adapted MITAMP that meets the scene you need in model zoo, and it will have better performance.
-- If you want to contribute to the Model Zoo, please [email](ythe1995@163.com) our group.
+- If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
 ## Usage of the pre-trained MITAMP
 ## 1. Clone the repository and prepare environment
