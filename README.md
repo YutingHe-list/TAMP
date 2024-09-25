@@ -9,9 +9,6 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 - 2024.09.18: Release the adaptation code of MITAMP together with an simple adaptation [dataset]() for quick start.
 - 2024.09.15: Release the **MITAMP** official code for universal NICT enhancement. Welcome to use and evaluate! [[Paper](***)] 
 
-## Dependencies
-- Python 3.10.11
-- PyTorch 2.0.1
 
 ## [MITAMP-adapted Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md)
 We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md) to release the adapted MITAMP in different downstream tasks.
@@ -21,6 +18,11 @@ We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/d
 
 ## Playground: Quick start of the MITAMP
 ## 1. Clone the repository and prepare environment
+
+### Dependencies
+- Python 3.10.11
+- PyTorch 2.0.1
+  
 **Step 1**: Clone the repository
 ```bash
 git clone https://github.com/YutingHe-list/MITAMP
