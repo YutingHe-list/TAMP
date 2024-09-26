@@ -1,4 +1,4 @@
-For your convenience, we have provided [data](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjK8gleWI4JCiVfYuyLHeBkBJYqQaCq3SzfVF8M2qmwfOg?e=6oiehh) for model testing and adaptation. Download and place the files into the corresponding directories as needed. You can also provide your own data and place it in the appropriate folders.
+We have provided [a simple dataset](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjK8gleWI4JCiVfYuyLHeBkBJYqQaCq3SzfVF8M2qmwfOg?e=6oiehh) for your quick start of the model testing and adaptation. Download and place the files into the corresponding directories as needed. You can also provide your own data and place it in the appropriate folders.
 
 
 # Slice testing
