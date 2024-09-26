@@ -1,4 +1,4 @@
-# MITAMP
+# :dragon_face: MITAMP - Universal enhancement of non-ideal measurement CT
 [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
