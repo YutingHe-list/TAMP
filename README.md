@@ -33,7 +33,7 @@ Waitting
 - [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
 - [ ] Release pre-training code of MITAMP.
 - [ ] MITAMP Toolbox on 3D Slicer.
-- [x] Construct a MITAMP-adapted Model Zoo.
+- [x] Open a MITAMP-adapted Model Zoo.
 - [x] Release adaptation code of MITAMP-S.
 - [x] Release inference code and pretrained weights of MITAMP.
 
