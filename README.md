@@ -84,7 +84,7 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 Download the model checkpoint and save it to `./weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl`.
 
 ## Option: A simple dataset for quick start
-We have provided a simple [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the MITAMP on NICT volumes or try the adaptation of our MITAMP, you can download the testing data and the training data with different NICT settings in specific folds.
+We have provided a simple [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the MITAMP on NICT volumes or try the adaptation, you can download the testing data and the training data with different NICT settings in specific folds.
 
 ## 3. Universal enhancement
 For your convenience, we provide two testing modes to demonstrate the universal NICT enhancement performance of MITAMP:
