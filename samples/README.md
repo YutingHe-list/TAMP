@@ -36,7 +36,7 @@ __volume_testing
 ```
 
 # Adaptation
-The NIFTI files for adaptation have been uploaded to [this link](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EuhW8PS-H2ZApQdw9odb-5MB96Q-XZw4N3JGhK3q7ZIc2A?e=v2FirK). Download and place them in the `adaptation/input` and `adaptation/label` directory as needed. The expected directory structure is as follows:
+You can try the adaptation via our provided [simple dataset](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjK8gleWI4JCiVfYuyLHeBkBJYqQaCq3SzfVF8M2qmwfOg?e=6oiehh). Download and place them in the `adaptation/input` and `adaptation/label` directory as needed. The expected directory structure is as follows:
 ```bash
 __adaptation
   |__input
