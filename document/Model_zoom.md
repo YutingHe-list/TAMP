@@ -1,4 +1,4 @@
-# :monkey: MITAMP-Adapted Model Zoo
+# :monkey: MITAMP-adapted Model Zoo
 
 Here we provide a model zoo that releases the adapted weights of our MITAMP in different downstream tasks. If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
