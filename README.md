@@ -37,7 +37,7 @@ Waitting
 - [x] Release adaptation code of MITAMP-S.
 - [x] Release inference code and pretrained weights of MITAMP.
 
-# :running: Playground: Quick start of the MITAMP
+# :running: Playground: Quick start MITAMP
 - [ ] You can try the MITAMP via the [Jupeter Notebook](). 
 - [x] You can implement the MITAMP on your server via the following operations.
 
