@@ -6,7 +6,7 @@ The official code of MITAMP paper - "[Imaging foundation model for universal enh
 
 ## News
 - 2024.09.25: Open a [MITAMP-adapted Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md) to release the adapted MITAMP in different downstream tasks.
-- 2024.09.18: Release the adaptation code of MITAMP together with a simple adaptation [dataset]() for quick start.
+- 2024.09.18: Release the adaptation code of MITAMP together with a [simple simulation-based dataset](https://seunic-my.sharepoint.cn/personal/220232198_seu_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FMITAMP%2FSimNICT%2DAMOS%2DSimple&ga=1) for quick start.
 - 2024.09.15: Release the **MITAMP** official code for universal NICT enhancement. Welcome to use and evaluate! [[Paper](***)]
 
 ## Simple introduction 
@@ -84,7 +84,7 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 Download the model checkpoint and save it to `./weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl`.
 
 ## Option: A simple dataset for quick start
-We have provided a simple [simulation-based dataset]() form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the MITAMP on NICT volumes or try the adaptation, you can download the testing data and the training data with different NICT settings in specific folds.
+We have provided a [simple simulation-based dataset](https://seunic-my.sharepoint.cn/personal/220232198_seu_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FMITAMP%2FSimNICT%2DAMOS%2DSimple&ga=1) form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the MITAMP on NICT volumes or try the adaptation, you can download the testing data and the training data with different NICT settings in specific folds.
 
 ## 3. Universal enhancement
 For your convenience, we provide two testing modes to demonstrate the universal NICT enhancement performance of MITAMP:
