@@ -16,7 +16,7 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 ## [MITAMP-adapted Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md)
 We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md) to release the adapted MITAMP in different downstream tasks.
 
-- You can try to find an adapted MITAMP that meets the scene you need in model zoo, and it will have better performance.
+- You can try to find an adapted MITAMP that meets the requirement of your target task, and it will have better performance.
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
 ## Demo
