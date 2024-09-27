@@ -1,6 +1,5 @@
 <!-- # :dragon_face: MITAMP - An imaging foundation model -->
 ![header](https://capsule-render.vercel.app/api?type=soft&height=90&color=gradient&text=MITAMP%20-%20%20An%20Imaging%20Foundation%20Model&descAlign=50&descAlignY=76&descSize=19&fontSize=37&textBg=false&fontAlign=50&section=header&reversal=true&desc=Imaging%20foundation%20model%20for%20universal%20enhancement%20of%20non-ideal%20measurement%20CT&fontAlignY=38&strokeWidth=0)
-
 :dragon_face: [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/MITAMP/blob/main/document/Model_zoom.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 --- 
