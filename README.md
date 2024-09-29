@@ -21,6 +21,12 @@ We are hosting a [Model Zoo](https://github.com/YutingHe-list/MITAMP/blob/main/d
 - You can try to find an adapted MITAMP that meets the requirement of your target task, and it will have better performance.
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
+
+
+https://github.com/user-attachments/assets/4016964e-828c-4ca6-816b-47e502ff53fc
+
+
+
 ## Demo
 Waitting
 <!-- ## Acknowledgements
