@@ -25,7 +25,7 @@ def get_parser():
 
     parser.add_argument('--training_volumes', type=int, default=44)
     parser.add_argument('--nii_start_index', type=int, default=1)
-    parser.add_argument('--LoRA_path', type=str, default="weights/MITAMP_adaptation_weight/LoRA_1.pkl")
+    parser.add_argument('--LoRA_path', type=str, default="weights/TAMP_adaptation_weight/LoRA_1.pkl")
     parser.add_argument('--queue_len', type=int, default=5)
     parser.add_argument('--batch_size', type=int, default=5)
     parser.add_argument('--cuda_index', type=int, default=3)
@@ -53,7 +53,7 @@ def standard(nii_slice):
     return nii_slice
 
 def load_model(opt):
-    state_dict = torch.load("weights/MITAMP_pretrain_weight/MITAMP_pretrain.pkl")
+    state_dict = torch.load("weights/TAMP_pretrain_weight/TAMP_pretrain.pkl")
     model = MITNet()
     model.load_state_dict(state_dict)
     

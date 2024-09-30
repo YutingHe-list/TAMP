@@ -2,7 +2,7 @@ We have provided [a simple dataset](https://seunic-my.sharepoint.cn/:f:/g/person
 
 
 # Slice testing
-The 2D NIFTI files with the shape [1, H, W] for testing have been placed in the `slice_testing/input` directory for direct testing. The output enhanced by [MITAMP](../README.md#31-slice-testing) or [MITAMP-S](../README.md#42-slice-testing) will be saved in the `slice_testing/output` directory. The expected directory structure is as follows:
+The 2D NIFTI files with the shape [1, H, W] for testing have been placed in the `slice_testing/input` directory for direct testing. The output enhanced by [TAMP](../README.md#31-slice-testing) or [TAMP-S](../README.md#42-slice-testing) will be saved in the `slice_testing/output` directory. The expected directory structure is as follows:
 
 ```bash
 __slice_testing
@@ -17,7 +17,7 @@ __slice_testing
 ```
 
 # Volume testing
-The 3D NIFTI files with the shape [S, H, W] for testing have been uploaded to [this link](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EtcfNaDy40lLt-tckD_lfJQBDWixEfxpYpUU-76f93jt7Q?e=qh42Yo). Download and place them in the `volume_testing/input` and `volume_testing/label` directory as needed. The output enhanced by [MITAMP](../README.md#32-volume-testing) or [MITAMP-S](../README.md#43-volume-testing) will be saved in the `volume_testing/output` directory. The expected directory structure is as follows:
+The 3D NIFTI files with the shape [S, H, W] for testing have been uploaded to [this link](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EtcfNaDy40lLt-tckD_lfJQBDWixEfxpYpUU-76f93jt7Q?e=qh42Yo). Download and place them in the `volume_testing/input` and `volume_testing/label` directory as needed. The output enhanced by [TAMP](../README.md#32-volume-testing) or [TAMP-S](../README.md#43-volume-testing) will be saved in the `volume_testing/output` directory. The expected directory structure is as follows:
 
 ```bash
 __volume_testing

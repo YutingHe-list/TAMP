@@ -62,7 +62,7 @@ def standard(nii_slice):
 
 def load_model(opt):
     model = my_network()
-    state_dict = torch.load("weights/MITAMP_weight/MITAMP.pkl")
+    state_dict = torch.load("weights/TAMP_pretrain_weight/TAMP_pretrain.pkl")
     model.load_state_dict(state_dict)
     
     with open('utils/LoRA_path.txt', 'r', encoding='utf-8') as file:
@@ -116,7 +116,7 @@ def adaptation(opt):
         show_training_global_info(nii_epoch,train_loss)
 
         LoRA_state_dict = get_peft_model_state_dict(model)
-        LoRA_state_path = f"weights/MITAMP_ada_zoo/LoRA_{nii_epoch}.pkl"
+        LoRA_state_path = f"weights/TAMP_adaptation_weight/LoRA_{nii_epoch}.pkl"
         torch.save(LoRA_state_dict,LoRA_state_path)
 
         scheduler.step()
