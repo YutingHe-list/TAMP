@@ -3,7 +3,7 @@
 Here we provide a model zoo that releases the adapted weights of our TAMP in different downstream tasks. If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
 ## News
-- **2024.09.25** We have released the TAMP-S models that were evaluated in our [paper](*******).
+- **2024.09.25** We have released the [TAMP-S](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EqZML5JjkP9FtqUbhmytor0B0d99OmORaKeoqBySK2oDaQ?e=nEfALO) models that were evaluated in our [paper](*******).
 
 ## Model Record
 ### 1. TAMP-S
