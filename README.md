@@ -17,7 +17,7 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 
 
 
-https://github.com/user-attachments/assets/d3b692c1-4b34-497b-ba42-513bb9a21bd1
+https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 
 
 
