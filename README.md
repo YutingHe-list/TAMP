@@ -33,7 +33,7 @@ Waitting
 ```
 
 ## Ongoing
-- [ ] Release SimNICT dataset with 10.6 million NICT-ICT image pairs.
+- [ ] Release SimNICT dataset with 10.9 million NICT-ICT image pairs.
 - [ ] Release pre-training code of TAMP.
 - [ ] TAMP Toolbox on 3D Slicer.
 - [x] Open a TAMP-adapted Model Zoo.
