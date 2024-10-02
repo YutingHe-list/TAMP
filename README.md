@@ -4,11 +4,11 @@
 [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
-:loudspeaker: **T**ransformer **AMP**lifier (**TAMP**) paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](***)".
+:loudspeaker: **TAMP** paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](***)".
 
 ## News
 - 2024.09.25: Open a [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
-- 2024.09.18: Release the adaptation code of TAMP together with a [simple dataset](https://seunic-my.sharepoint.cn/personal/220232198_seu_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FTAMP%2FSimNICT%2DAMOS%2DSimple&ga=1) for quick start.
+- 2024.09.18: Release the adaptation code of **TAMP** together with a [simple dataset](https://seunic-my.sharepoint.cn/personal/220232198_seu_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FTAMP%2FSimNICT%2DAMOS%2DSimple&ga=1) for quick start.
 - 2024.09.15: Release the **TAMP** official code for universal NICT enhancement. Welcome to use! [[Paper](***)]
 
 ## Brief introduction 
