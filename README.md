@@ -16,11 +16,6 @@ Non-ideal measurement computed tomography (NICT), which sacrifices optimal imagi
 <p align="center"><img width="100%" src="figs/background.png" />
 
 
-
-https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
-
-
-
 ## [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
 We are hosting a [Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
 
@@ -28,7 +23,7 @@ We are hosting a [Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/doc
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
 ## Demo
-Waitting
+https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 <!-- ## Acknowledgements
 - We highly appreciate -->
 
