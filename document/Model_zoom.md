@@ -14,4 +14,4 @@ Here we provide a model zoo that releases the adapted weights of our TAMP in dif
 - **Description:** **27** simulation-based adaptation models evaluated in our paper. These models are adapted to three NICT settings with different defect degrees.
 
 ## Acknowledgement
-We
+waitting
