@@ -4,7 +4,7 @@
 [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
-:loudspeaker: TAMP paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](***)".
+:loudspeaker: **T**ransformer **AMP**lifier (**TAMP**) paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](***)".
 
 ## News
 - 2024.09.25: Open a [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
