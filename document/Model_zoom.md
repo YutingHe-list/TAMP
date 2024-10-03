@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/545bb2a3-bf5f-4c75-b8b1-d6a81487e35f)# :monkey: TAMP-adapted Model Zoo
+# :monkey: TAMP-adapted Model Zoo
 
 Here we provide a model zoo that releases the adapted weights of our TAMP in different downstream tasks. If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
 
