@@ -1,15 +1,16 @@
 <!-- # :dragon_face: TAMP - An imaging foundation model -->
-[![header](https://capsule-render.vercel.app/api?type=soft&height=90&color=auto&text=TAMP%20-%20%20An%20Imaging%20Foundation%20Model&descAlign=50&descAlignY=76&descSize=19&fontSize=37&textBg=false&fontAlign=50&section=header&reversal=false&desc=Imaging%20foundation%20model%20for%20universal%20enhancement%20of%20non-ideal%20measurement%20CT&fontAlignY=38&strokeWidth=0)]()
+[![header](https://capsule-render.vercel.app/api?type=soft&height=90&color=auto&text=TAMP%20-%20%20An%20Imaging%20Foundation%20Model&descAlign=50&descAlignY=76&descSize=19&fontSize=37&textBg=false&fontAlign=50&section=header&reversal=false&desc=Imaging%20foundation%20model%20for%20universal%20enhancement%20of%20non-ideal%20measurement%20CT&fontAlignY=38&strokeWidth=0)](https://arxiv.org/abs/2410.01591)
 --- 
+[![Paper](https://img.shields.io/badge/TAMP_paper-Arxiv-purple)](https://arxiv.org/abs/2410.01591)
 [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
-:loudspeaker: **TAMP** paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](***)".
+:loudspeaker: **TAMP** paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](https://arxiv.org/abs/2410.01591)".
 
 ## News
 - 2024.09.25: Open a [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
 - 2024.09.18: Release the adaptation code of **TAMP** together with a [simple dataset](https://seunic-my.sharepoint.cn/personal/220232198_seu_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FTAMP%2FSimNICT%2DAMOS%2DSimple&ga=1) for quick start.
-- 2024.09.15: Release the **TAMP** official code for universal NICT enhancement. Welcome to use! [[Paper](***)]
+- 2024.09.15: Release the **TAMP** official code for universal NICT enhancement. Welcome to use! [[Paper](https://arxiv.org/abs/2410.01591)]
 
 ## Brief introduction 
 Non-ideal measurement computed tomography (NICT), which sacrifices optimal imaging standards for new advantages in CT imaging, is expanding the clinical application scope of CT images. However, with the reduction of imaging standards, the image quality has also been reduced, extremely limiting the clinical acceptability. We propose a multi-scale integrated **T**ransformer **AMP**lifier (**TAMP**), the first imaging foundation model for universal NICT enhancement. It has been pre-trained on a large-scale physical-driven simulation dataset, and is able to directly generalize to the NICT enhancement tasks with various non-ideal settings and body regions. Via the adaptation with few data, it can further achieve professional performance in real-world specific scenarios.
