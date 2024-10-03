@@ -30,7 +30,14 @@ https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 
 ## Reference
 ```
-Waitting
+@misc{liu2024imagingfoundationmodeluniversal,
+      title={Imaging foundation model for universal enhancement of non-ideal measurement CT}, 
+      author={Yuxin Liu and Rongjun Ge and Yuting He and Zhan Wu and Chenyu You and Shuo Li and Yang Chen},
+      year={2024},
+      eprint={2410.01591},
+      archivePrefix={arXiv},
+      url={https://arxiv.org/abs/2410.01591}, 
+}
 ```
 
 ## Ongoing
