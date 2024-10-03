@@ -7,9 +7,9 @@
 
 :loudspeaker: **TAMP** paper:
 
-**[Imaging foundation model for universal enhancement of non-ideal measurement CT](https://arxiv.org/abs/2410.01591)** <br/> 
-Yuxin Liu*, [Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), [Yuting He#](https://yutinghe-list.github.io/), Zhan Wu, [Chenyu You](https://chenyuyou.me/), [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), Yang Chen# <br/>
-*means Equal contribution, #means [Corresponding](mailto:ythe1995@163.com) author <br/>
+**[Imaging foundation model for universal enhancement of non-ideal measurement CT.](https://arxiv.org/abs/2410.01591)** <br/> 
+Yuxin Liu*, [Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), [Yuting He#](https://yutinghe-list.github.io/), Zhan Wu, [Chenyu You](https://chenyuyou.me/), [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), Yang Chen#. <br/>
+*means equal contribution, #means [corresponding](mailto:ythe1995@163.com) author. <br/>
 **Preprint**
 
 ## News
