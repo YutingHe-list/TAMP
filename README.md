@@ -5,7 +5,11 @@
 [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
-:loudspeaker: **TAMP** paper - "[Imaging foundation model for universal enhancement of non-ideal measurement CT](https://arxiv.org/abs/2410.01591)".
+:loudspeaker: **TAMP** paper - 
+
+**[Imaging foundation model for universal enhancement of non-ideal measurement CT](https://arxiv.org/abs/2410.01591)** <br/> 
+Yuxin Liu*, [Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), [Yuting He#](https://yutinghe-list.github.io/), Zhan Wu, [Chenyu You](https://chenyuyou.me/), [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), Yang Chen# <br/>
+* Equal contribution, # Corresponding author ([EMAIL](mailto:ythe1995@163.com)) <br/>
 
 ## News
 - 2024.10.03: The technique paper of **TAMP** has been released. [[Paper](https://arxiv.org/abs/2410.01591)]
@@ -16,7 +20,6 @@
 ## Brief introduction 
 Non-ideal measurement computed tomography (NICT), which sacrifices optimal imaging standards for new advantages in CT imaging, is expanding the clinical application scope of CT images. However, with the reduction of imaging standards, the image quality has also been reduced, extremely limiting the clinical acceptability. We propose a multi-scale integrated **T**ransformer **AMP**lifier (**TAMP**), the first imaging foundation model for universal NICT enhancement. It has been pre-trained on a large-scale physical-driven simulation dataset, and is able to directly generalize to the NICT enhancement tasks with various non-ideal settings and body regions. Via the adaptation with few data, it can further achieve professional performance in real-world specific scenarios.
 <p align="center"><img width="100%" src="figs/background.png" />
-
 
 ## [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
 We are hosting a [Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
