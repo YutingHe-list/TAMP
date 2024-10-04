@@ -2,7 +2,7 @@
 [![header](https://capsule-render.vercel.app/api?type=soft&height=90&color=auto&text=TAMP%20-%20%20An%20Imaging%20Foundation%20Model&descAlign=50&descAlignY=76&descSize=19&fontSize=37&textBg=false&fontAlign=50&section=header&reversal=false&desc=Imaging%20foundation%20model%20for%20universal%20enhancement%20of%20non-ideal%20measurement%20CT&fontAlignY=38&strokeWidth=0)](https://arxiv.org/abs/2410.01591)
 --- 
 [![Paper](https://img.shields.io/badge/TAMP_paper-Arxiv-purple)](https://arxiv.org/abs/2410.01591)
-[![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
+[![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoo.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
 :loudspeaker: **TAMP** paper - **[Imaging foundation model for universal enhancement of non-ideal measurement CT.](https://arxiv.org/abs/2410.01591)** <br/> 
@@ -11,14 +11,14 @@ _*means equal contribution, #means [corresponding](mailto:ythe1995@163.com) auth
 
 ## News
 - 2024.10.03: **TAMP** has been released! Welcome to use! [[Paper](https://arxiv.org/abs/2410.01591)]
-- 2024.09.25: Open a [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
+- 2024.09.25: Open a [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoo.md) to release the adapted TAMP in different downstream tasks.
 
 ## Brief introduction 
 Non-ideal measurement computed tomography (NICT), which sacrifices optimal imaging standards for new advantages in CT imaging, is expanding the clinical application scope of CT images. However, with the reduction of imaging standards, the image quality has also been reduced, extremely limiting the clinical acceptability. We propose a multi-scale integrated **T**ransformer **AMP**lifier (**TAMP**), the first imaging foundation model for universal NICT enhancement. It has been pre-trained on a large-scale physical-driven simulation dataset, and is able to directly generalize to the NICT enhancement tasks with various non-ideal settings and body regions. Via the adaptation with few data, it can further achieve professional performance in real-world specific scenarios.
 <p align="center"><img width="100%" src="figs/background.png" />
 
-## [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md)
-We are hosting a [Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoom.md) to release the adapted TAMP in different downstream tasks.
+## [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoo.md)
+We are hosting a [Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoo.md) to release the adapted TAMP in different downstream tasks.
 
 - You can try to find an adapted TAMP that meets the requirements of your target task, and it will perform better.
 - If you want to contribute to the Model Zoo, please send the [EMAIL](mailto:ythe1995@163.com) to our group.
