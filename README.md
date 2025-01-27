@@ -90,7 +90,7 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 <!-- need added: one in paper, one for recent -->
 | Weight     | Download  | Description                           |
 |------------|-----------|---------------------------------------|
-| TAMP_pretrain.pkl | [link](https://seunic-my.sharepoint.cn/:u:/g/personal/220232198_seu_edu_cn/EYkIR7NFZIRPoU8sMgr9A9MBKDQyEg91-43OSGLMvL4fFQ?e=2xsa3w) |Pre-trained universal NICT enhancement model|
+| TAMP_pretrain.pkl | [link](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjK8gleWI4JCiVfYuyLHeBkBJYqQaCq3SzfVF8M2qmwfOg) |Pre-trained universal NICT enhancement model|
 
 Download the model checkpoint and save it to `./weights/TAMP_pretrain_weight/TAMP_pretrain.pkl`.
 
