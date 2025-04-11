@@ -95,7 +95,7 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 Download the model checkpoint and save it to `./weights/TAMP_pretrain_weight/TAMP_pretrain.pkl`.
 
 ## Option: A simple dataset for quick start
-We have provided a [simple simulation-based dataset](https://seunic-my.sharepoint.cn/personal/220232198_seu_edu_cn/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F220232198%5Fseu%5Fedu%5Fcn%2FDocuments%2FTAMP%2FSimNICT%2DAMOS%2DSimple&ga=1) form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the TAMP on NICT volumes or try the adaptation, you can download the testing data and the training data with different NICT settings in specific folds.
+We have provided a [simple simulation-based dataset](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjK8gleWI4JCiVfYuyLHeBkBJYqQaCq3SzfVF8M2qmwfOg?e=hqD6Pz) form a part of [AMOS](https://amos22.grand-challenge.org/) dataset for quick start. If you want to test the TAMP on NICT volumes or try the adaptation, you can download the testing data and the training data with different NICT settings in specific folds.
 
 ## 3. Universal enhancement
 For your convenience, we provide two testing modes to demonstrate the universal NICT enhancement performance of TAMP:
