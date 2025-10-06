@@ -3,6 +3,7 @@
 --- 
 [![Paper](https://img.shields.io/badge/TAMP_paper-Arxiv-purple)](https://arxiv.org/abs/2410.01591)
 [![Model Zoo](https://img.shields.io/badge/Model_zoo-processing-blue)](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoo.md)
+[![NICT Simulator](https://img.shields.io/badge/NICT_Simulator-available-orange)](https://github.com/YutingHe-list/TAMP/blob/main/document/NICT_Simulator.md)
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
 :loudspeaker: **TAMP** paper - **[Imaging foundation model for universal enhancement of non-ideal measurement CT.](https://arxiv.org/abs/2410.01591)** <br/> 
@@ -45,6 +46,7 @@ https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 - [ ] Release pre-training code of TAMP.
 - [ ] TAMP Toolbox on 3D Slicer.
 - [x] Open a TAMP-adapted Model Zoo.
+- [x] Release NICT Simulator for NICT simulation.
 - [x] Release adaptation code of TAMP-S.
 - [x] Release inference code and pretrained weights of TAMP.
 
@@ -65,7 +67,7 @@ cd TAMP/
 pip install -r requirements.txt
 ```
 
-**Step 2**: Install the [Adan](https://github.com/sail-sg/Adan) and [ODL](https://github.com/odlgroup/odl) packages by following the recommended procedures.
+**Step 2**: Install the [Adan](https://github.com/sail-sg/Adan), [ODL](https://github.com/odlgroup/odl), and [ASTRA Toolbox](https://github.com/astra-toolbox/astra-toolbox) packages by following the recommended procedures.
 
 - **Adan**
 
@@ -85,6 +87,14 @@ Install the ODL package by following the steps below:
 pip install odl
 ```
 Next, clone the ODL repository and overwrite the contents of the odl folder in your TAMP environment (.e.g, `/home/xytc/anaconda3/envs/TAMP/lib/python3.10/site-packages/odl`)with the files from the `odl/odl` folder in the cloned repository.
+
+- **ASTRA Toolbox** (Required for NICT Simulator)
+
+For CUDA-enabled systems, install ASTRA Toolbox:
+```bash
+conda install astra-toolbox -c astra-toolbox
+```
+For detailed installation instructions, refer to the [ASTRA Toolbox documentation](https://www.astra-toolbox.com/docs/install.html).
 
 ## 2. Download the pre-trained TAMP
 <!-- need added: one in paper, one for recent -->
@@ -176,4 +186,87 @@ To enhance **all NICT volume files** in the `--input_folder` directory using TAM
 ```bash
 python inference.py --testing_mode "group_volume" --input_folder "samples/volume_testing/input" --output_folder "samples/volume_testing/output" --LoRA_mode "load" --LoRA_path "weights/TAMP_adaptation_weight/LoRA_88.pkl"
 ```
+
+## 5. NICT Simulator - NICT Simulation
+
+We provide a **NICT Simulator** (`utils/nict_simulator.py`) that enables users to generate their own NICT simulations from standard CT images. This simulator includes three types of NICT simulations used in our research.
+
+📖 **[Complete Documentation](document/NICT_Simulator.md)** - Detailed API reference, physics principles, and advanced examples.
+
+### 5.1 Available Simulation Types
+
+| NICT Type | Description | Key Parameter | Parameter Range |
+|-----------|-------------|---------------|-----------------|
+| **SVCT** (Sparse-View CT) | Limited projection views | `num_views` | 15-360 views |
+| **LACT** (Limited-Angle CT) | Restricted angular range | `angle_range` | 75-270 degrees |
+| **LDCT** (Low-Dose CT) | Reduced photon dose with Poisson noise | `dose_percentage` | 5-75% |
+
+### 5.2 Quick Start Demo
+
+Run the interactive demo to see NICT Simulator in action:
+
+```bash
+python examples/simnict_demo.py
+```
+
+This demo will:
+- Generate SVCT, LACT, and LDCT from sample slices
+- Process a complete 3D volume
+- Compare different simulation parameters
+- Save all results for inspection
+
+### 5.3 Basic Usage
+
+**Single Slice Simulation:**
+
+```python
+from utils.nict_simulator import create_sparse_view_ct, create_limited_angle_ct, create_low_dose_ct
+import numpy as np
+
+# Load your ICT slice (512x512)
+ict_slice = ...  # Your ICT data
+
+# Generate Sparse-View CT (60 views)
+svct_slice = create_sparse_view_ct(ict_slice, height=512, width=512, num_views=60)
+
+# Generate Limited-Angle CT (120° angular range)
+lact_slice = create_limited_angle_ct(ict_slice, height=512, width=512, angle_range=120)
+
+# Generate Low-Dose CT (25% dose)
+ldct_slice = create_low_dose_ct(ict_slice, height=512, width=512, dose_percentage=25)
+```
+
+**Batch Volume Processing:**
+
+```python
+from utils.nict_simulator import batch_create_nict_volume
+import nibabel as nib
+
+# Load ICT volume
+ict_image = nib.load('path/to/ict_volume.nii.gz')
+ict_volume = ict_image.get_fdata()  # Shape: [H, W, S]
+
+# Generate complete NICT volume
+ldct_volume = batch_create_nict_volume(ict_volume, nict_type='LDCT', dose_percentage=25)
+svct_volume = batch_create_nict_volume(ict_volume, nict_type='SVCT', num_views=60)
+lact_volume = batch_create_nict_volume(ict_volume, nict_type='LACT', angle_range=120)
+
+# Save results
+ldct_image = nib.Nifti1Image(ldct_volume, ict_image.affine)
+nib.save(ldct_image, 'path/to/ldct_volume.nii.gz')
+```
+
+### 5.4 Notes on Data Ranges
+
+- **SVCT/LACT**: Input should be in range [0, 4096], output in same range
+- **LDCT**: Input should be in HU range [-1024, 3072], output in same range
+- The toolkit automatically handles the conversion between HU values and attenuation coefficients
+
+### 5.5 Requirements
+
+The NICT Simulator requires:
+- **ODL** (Operator Discretization Library) - for SVCT and LACT reconstruction
+- **ASTRA Toolbox** - for LDCT reconstruction with CUDA acceleration
+
+Please ensure these packages are properly installed following the instructions in [Step 2](#1-clone-the-repository-and-prepare-environment).
 

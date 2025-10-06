@@ -1,0 +1,89 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# PyTorch
+*.pth
+*.pt
+*.pkl
+*.ckpt
+*.safetensors
+
+# Medical Imaging Data
+*.nii
+*.nii.gz
+*.dcm
+*.dicom
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project specific - Large files and weights
+weights/**/*.pkl
+weights/**/*.pth
+weights/**/*.pt
+!weights/**/README.md
+
+# Keep directory structure but ignore actual data
+samples/*/input/*.nii.gz
+samples/*/label/*.nii.gz
+samples/*/output/*.nii.gz
+!samples/**/README.md
+
+# Training outputs
+checkpoints/
+runs/
+outputs/
+results/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
