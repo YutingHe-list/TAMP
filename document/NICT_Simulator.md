@@ -17,11 +17,6 @@ The NICT Simulator provides physics-based simulation functions to generate three
 - Typical values: 30, 60, 90, 120 views
 - Lower views → more severe artifacts
 
-**Example Applications**:
-- Real-time CT imaging
-- Cardiac CT with rapid heart rate
-- Emergency trauma scanning
-
 ### 2. Limited-Angle CT (LACT)
 
 **Physical Principle**: Restricts the angular scanning range due to geometric constraints or obstructions.
@@ -33,16 +28,11 @@ The NICT Simulator provides physics-based simulation functions to generate three
 - Typical values: 120°, 150°, 180°
 - Smaller angle → more severe directional artifacts
 
-**Example Applications**:
-- Dental CT with limited access
-- Intraoperative CT with surgical equipment
-- Security screening CT
-
 ### 3. Low-Dose CT (LDCT)
 
 **Physical Principle**: Reduces X-ray photon flux to minimize radiation exposure, resulting in increased quantum noise.
 
-**Implementation**: Uses ASTRA Toolbox with CUDA acceleration:
+**Implementation**: Uses ASTRA Toolbox:
 1. Converts HU values to linear attenuation coefficients
 2. Performs forward projection to create sinogram
 3. Adds Poisson noise proportional to dose reduction
@@ -52,11 +42,6 @@ The NICT Simulator provides physics-based simulation functions to generate three
 - `dose_percentage`: Dose level as % of standard dose (5-75%)
 - Typical values: 10%, 25%, 50%
 - Lower dose → more severe noise
-
-**Example Applications**:
-- Lung cancer screening
-- Pediatric CT
-- Follow-up examinations
 
 ## Detailed API Reference
 
@@ -321,36 +306,6 @@ shifted = hu_values + 1024
 # Shifted scale to standard HU
 hu_values = shifted - 1024
 ```
-
-### Performance Considerations
-
-**GPU Acceleration**:
-- LDCT simulation requires CUDA-capable GPU
-- ASTRA Toolbox uses GPU for fast reconstruction
-- SVCT/LACT use CPU-based ODL operations
-
-**Processing Time** (approximate, for 512×512 image):
-- SVCT (60 views): ~0.5-1 seconds per slice
-- LACT (120°): ~0.5-1 seconds per slice
-- LDCT (any dose): ~0.3-0.5 seconds per slice (GPU)
-
-**Memory Requirements**:
-- Peak memory ~2-4 GB for 512×512×200 volume
-- Scales linearly with volume size
-
-### Common Issues and Solutions
-
-**Issue 1**: ODL reconstruction artifacts at image boundaries
-- **Solution**: Ensure sufficient padding or crop boundaries after reconstruction
-
-**Issue 2**: ASTRA CUDA out of memory
-- **Solution**: Process slices individually or reduce batch size
-
-**Issue 3**: Negative HU values in LDCT
-- **Solution**: This is expected due to noise; clip if needed: `np.clip(ldct, -1024, 3072)`
-
-**Issue 4**: Different noise patterns between simulations
-- **Solution**: Set random seed for reproducibility: `np.random.seed(42)`
 
 ## Citation
 

@@ -20,7 +20,7 @@ python examples/simnict_demo.py
 
 **Requirements**:
 - ODL package for SVCT/LACT
-- ASTRA Toolbox with CUDA for LDCT
+- ASTRA Toolbox for LDCT
 - Sample data in `samples/` directory
 
 **Expected Output**:

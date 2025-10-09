@@ -42,9 +42,9 @@ https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 ```
 
 ## Ongoing
-- [ ] Release SimNICT dataset with 10.9 million NICT-ICT image pairs.
-- [ ] Release pre-training code of TAMP.
 - [ ] TAMP Toolbox on 3D Slicer.
+- [ ] Release pre-training code of TAMP.
+- [x] Release SimNICT dataset with 10.9 million NICT-ICT image pairs.
 - [x] Open a TAMP-adapted Model Zoo.
 - [x] Release NICT Simulator for NICT simulation.
 - [x] Release adaptation code of TAMP-S.
@@ -90,7 +90,7 @@ Next, clone the ODL repository and overwrite the contents of the odl folder in y
 
 - **ASTRA Toolbox** (Required for NICT Simulator)
 
-For CUDA-enabled systems, install ASTRA Toolbox:
+Install ASTRA Toolbox:
 ```bash
 conda install astra-toolbox -c astra-toolbox
 ```
@@ -187,7 +187,7 @@ To enhance **all NICT volume files** in the `--input_folder` directory using TAM
 python inference.py --testing_mode "group_volume" --input_folder "samples/volume_testing/input" --output_folder "samples/volume_testing/output" --LoRA_mode "load" --LoRA_path "weights/TAMP_adaptation_weight/LoRA_88.pkl"
 ```
 
-## 5. NICT Simulator - NICT Simulation
+## 5. NICT Simulator
 
 We provide a **NICT Simulator** (`utils/nict_simulator.py`) that enables users to generate their own NICT simulations from standard CT images. This simulator includes three types of NICT simulations used in our research.
 
@@ -266,7 +266,7 @@ nib.save(ldct_image, 'path/to/ldct_volume.nii.gz')
 
 The NICT Simulator requires:
 - **ODL** (Operator Discretization Library) - for SVCT and LACT reconstruction
-- **ASTRA Toolbox** - for LDCT reconstruction with CUDA acceleration
+- **ASTRA Toolbox** - for LDCT reconstruction
 
 Please ensure these packages are properly installed following the instructions in [Step 2](#1-clone-the-repository-and-prepare-environment).
 

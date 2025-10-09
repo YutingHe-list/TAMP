@@ -193,7 +193,6 @@ def main():
         traceback.print_exc()
         print("\nPlease ensure:")
         print("- Required packages are installed (odl, astra-toolbox)")
-        print("- CUDA is available for LDCT simulation")
         print("- Sample data is downloaded")
 
 
