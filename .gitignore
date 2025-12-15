@@ -87,3 +87,9 @@ results/
 *.bak
 *.backup
 
+# Workspace file
+*.code-workspace
+
+# Temp folder for data processing
+temp/
+
