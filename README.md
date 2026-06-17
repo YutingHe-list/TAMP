@@ -100,7 +100,7 @@ For detailed installation instructions, refer to the [ASTRA Toolbox documentatio
 <!-- need added: one in paper, one for recent -->
 | Weight     | Download  | Description                           |
 |------------|-----------|---------------------------------------|
-| TAMP_pretrain.pkl | [link](https://seunic-my.sharepoint.cn/:f:/g/personal/220232198_seu_edu_cn/EjK8gleWI4JCiVfYuyLHeBkBJYqQaCq3SzfVF8M2qmwfOg) |Pre-trained universal NICT enhancement model|
+| TAMP_pretrain.pkl | [link](https://huggingface.co/datasets/YutingHe-list/SimNICT/tree/main/weights/TAMP_pretrain_weight) |Pre-trained universal NICT enhancement model|
 
 Download the model checkpoint and save it to `./weights/TAMP_pretrain_weight/TAMP_pretrain.pkl`.
 
