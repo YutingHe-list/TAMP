@@ -7,7 +7,7 @@
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
 :loudspeaker: **TAMP** paper - **[Imaging foundation model for universal enhancement of non-ideal measurement CT.](https://arxiv.org/abs/2410.01591)** <br/> 
-Yuxin Liu*, [Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), [Yuting He#](https://yutinghe-list.github.io/), Zhan Wu, [Chenyu You](https://chenyuyou.me/), [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), Yang Chen#. <br/>
+[Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), Yuxin Liu*, Zhan Wu, [Chenyu You](https://chenyuyou.me/), [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), [Yuting He#](https://yutinghe-list.github.io/), Yang Chen#. <br/>
 _*means equal contribution, #means [corresponding](mailto:ythe1995@163.com) author._
 
 ## News
