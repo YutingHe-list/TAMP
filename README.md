@@ -7,10 +7,11 @@
 [![SimNICT dataset](https://img.shields.io/badge/SimNICT_dataset-processing-green)](https://huggingface.co/datasets/YutingHe-list/SimNICT)
 
 :loudspeaker: **TAMP** paper - **[Imaging foundation model for universal enhancement of non-ideal measurement CT.](https://arxiv.org/abs/2410.01591)** <br/> 
-[Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), Yuxin Liu*, Zhan Wu, [Chenyu You](https://chenyuyou.me/), [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), [Yuting He#](https://yutinghe-list.github.io/), Yang Chen#. <br/>
+[Rongjun Ge*](https://scholar.google.com/citations?user=v8K8HIkAAAAJ&hl=en), Yuxin Liu*, Zhan Wu, Shangwen Yang, [Chenyu You](https://chenyuyou.me/), Ge Wang, [Shuo Li](https://engineering.case.edu/about/school-directory/shuo-li), [Yuting He#](https://yutinghe-list.github.io/), Yang Chen#. <br/>
 _*means equal contribution, #means [corresponding](mailto:ythe1995@163.com) author._
 
 ## News
+- 2026.06.04: **TAMP** paper has been accepted and published by Nature Communications [[Paper](https://www.nature.com/articles/s41467-026-73943-y)]
 - 2024.10.03: **TAMP** has been released! Welcome to use! [[Paper](https://arxiv.org/abs/2410.01591)]
 - 2024.09.25: Open a [TAMP-adapted Model Zoo](https://github.com/YutingHe-list/TAMP/blob/main/document/Model_zoo.md) to release the adapted TAMP in different downstream tasks.
 
