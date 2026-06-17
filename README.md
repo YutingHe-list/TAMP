@@ -32,13 +32,11 @@ https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 
 ## Reference
 ```
-@misc{liu2024imagingfoundationmodeluniversal,
+@article{ge2026imaging,
       title={Imaging foundation model for universal enhancement of non-ideal measurement CT}, 
-      author={Yuxin Liu and Rongjun Ge and Yuting He and Zhan Wu and Chenyu You and Shuo Li and Yang Chen},
-      year={2024},
-      eprint={2410.01591},
-      archivePrefix={arXiv},
-      url={https://arxiv.org/abs/2410.01591}, 
+      author={Ge, Rongjun and Liu, Yuxin and Wu, Zhan and Yang, Shangwen and You, Chenyu and Wang, Ge and Li, Shuo and He, Yuting and Chen, Yang},
+      journal={Nature communications},
+      year={2026}
 }
 ```
 
