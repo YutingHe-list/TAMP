@@ -42,7 +42,7 @@ https://github.com/user-attachments/assets/fe01975c-7956-4b4d-aa1d-813623dcee01
 
 ## Ongoing
 - [ ] TAMP Toolbox on 3D Slicer.
-- [ ] Release pre-training code of TAMP.
+- [x] Release pre-training code of TAMP.
 - [x] Release SimNICT dataset with 10.9 million NICT-ICT image pairs.
 - [x] Open a TAMP-adapted Model Zoo.
 - [x] Release NICT Simulator for NICT simulation.
